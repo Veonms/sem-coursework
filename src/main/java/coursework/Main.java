@@ -1,4 +1,4 @@
 package coursework;
 
-public class temp {
+public class Main {
 }
