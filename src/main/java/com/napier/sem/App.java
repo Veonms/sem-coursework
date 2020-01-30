@@ -26,11 +26,11 @@ public class App {
         MongoCollection<Document> collection = database.getCollection("test");
 
         //Create test document
-        Document doc = new Document("name", "Connor Grattan")
-                .append("module", "Software Engineering Methods")
-                .append("year", "2018/19")
-                .append("result", new Document("CW", 95)
-                        .append("EX", 85));
+        Document doc = new Document("name", "Batman")
+                .append("superpower", "Inheritance money")
+                .append("rival", "The mentally handicapped")
+                .append("alterego", new Document("Name", "Bruce Wayne")
+                        .append("occupation", "businessman"));
 
         //Add document to collection
         collection.insertOne(doc);
