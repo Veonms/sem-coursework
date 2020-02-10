@@ -42,8 +42,8 @@ public class Country {
         if (code.length() == 3) {
             this.code = code;
         } else {
-            System.out.println("Couldn't set country code: " + code + ", Code set to: ' '");
-            this.code = " ";
+            System.out.println("Couldn't set country code: " + code + ", code set to: ''");
+            this.code = "";
         }
     }
 
@@ -61,7 +61,8 @@ public class Country {
      */
     public void setName(String name) {
         if (name.length() > 52) {
-            System.out.println("Couldn't set country name: " + name);
+            System.out.println("Couldn't set country name: " + name + ", name set to: ''");
+            this.name = "";
         } else {
             this.name = name;
         }
@@ -91,7 +92,8 @@ public class Country {
                 this.continent = continent;
                 break;
             default:
-                System.out.println("Couldn't set continent: " + continent);
+                System.out.println("Couldn't set continent: " + continent + ", continent set to: 'Asia'");
+                this.continent = "Asia";
                 break;
         }
     }
@@ -106,10 +108,14 @@ public class Country {
 
     /**
      * This method sets the region of the country.
-     * @param region The region to be set.
+     * @param region The region to be set (no longer than 26 characters).
      */
     public void setRegion(String region) {
-        this.region = region;
+        if (name.length() > 26) {
+            System.out.println("Couldn't set country region: " + region + ", region set to: ' '");
+        } else {
+            this.region = region;
+        }
     }
 
     public String getSurfaceArea() {
