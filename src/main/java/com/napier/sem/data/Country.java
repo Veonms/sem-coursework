@@ -1,5 +1,9 @@
 package com.napier.sem.data;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.Date;
+
 /**
  * <h1>Country</h1>
  * <p>Stores the shit related to countries</p>
@@ -14,7 +18,7 @@ public class Country {
     private String name;
     private String continent;
     private String region;
-    private String surfaceArea;
+    private double surfaceArea;
     private int independence;
     private int population;
     private double lifeExpectancy;
@@ -118,42 +122,96 @@ public class Country {
         }
     }
 
-    public String getSurfaceArea() {
+    /**
+     * This method will fetch the surface area of a given country.
+     * @return The surface area
+     */
+    public double getSurfaceArea() {
         return surfaceArea;
     }
 
-    public void setSurfaceArea(String surfaceArea) {
-        this.surfaceArea = surfaceArea;
+    /**
+     * Set the surface area of a given country.
+     * @param surfaceArea The surface area to be set (rounded to 2 decimal places).
+     */
+    public void setSurfaceArea(double surfaceArea) {
+        DecimalFormat df = new DecimalFormat("###.##");
+        df.setRoundingMode(RoundingMode.HALF_EVEN); // Sets a rounding format for the data.
+        this.surfaceArea = Double.parseDouble(df.format(surfaceArea));
     }
 
+    /**
+     * Fetches the year the country gained independence.
+     * @return The year a given country went independent.
+     */
     public int getIndependence() {
         return independence;
     }
 
+    /**
+     * This method sets the year of independence.
+     * @param independence The year the country went independent.
+     */
     public void setIndependence(int independence) {
-        this.independence = independence;
+        Date date = new Date();
+
+        if(independence > date.getYear()) {
+            System.out.println("Couldn't set the date of independence to a future year!");
+        } else {
+            this.independence = independence;
+        }
     }
 
+    /**
+     * Get the population of a given country.
+     * @return The population of a country.
+     */
     public int getPopulation() {
         return population;
     }
 
+    /**
+     * Set the population of a country.
+     * @param population The population to be set.
+     */
     public void setPopulation(int population) {
         this.population = population;
     }
 
+    /**
+     * Get the life expectancy of a given country.
+     * @return The life expectancy in years.
+     */
     public double getLifeExpectancy() {
         return lifeExpectancy;
     }
 
+
+    /**
+     * Set the life expectancy for a country.
+     * @param lifeExpectancy The life expectancy to get set.
+     */
     public void setLifeExpectancy(double lifeExpectancy) {
-        this.lifeExpectancy = lifeExpectancy;
+        DecimalFormat df = new DecimalFormat("###.#");
+        df.setRoundingMode(RoundingMode.HALF_EVEN); // Sets a rounding format for the data.
+        this.lifeExpectancy = Double.parseDouble(df.format(lifeExpectancy));
     }
 
+    /**
+     * Gross National Product is a broad measure of a nation's total economic activity.
+     * i.e. all finished goods and services provided in 1 year by the nationals.
+     *
+     * This function will grab the GNP for the specified country.
+     * @return
+     */
     public double getGrossNationalProduct() {
         return grossNationalProduct;
     }
 
+    /**
+     *
+     * @param grossNationalProduct
+     */
     public void setGrossNationalProduct(double grossNationalProduct) {
         this.grossNationalProduct = grossNationalProduct;
     }
