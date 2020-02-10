@@ -1,6 +1,9 @@
 package com.napier.sem;
 
+import com.napier.sem.data.Capital;
 import com.napier.sem.util.DatabaseManager;
+
+import java.sql.Statement;
 
 /**
 * <h1>SEM Coursework</h1>

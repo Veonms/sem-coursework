@@ -1,8 +1,11 @@
 package com.napier.sem.util;
 
+import com.napier.sem.data.Capital;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * <h1>Database Manager</h1>
@@ -47,7 +50,7 @@ public class DatabaseManager {
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
@@ -67,5 +70,21 @@ public class DatabaseManager {
                 System.out.println("Error closing connection to database");
             }
         }
+    }
+    public Capital getCapital(){
+        try{
+            Statement stmt = conn.createStatement();
+
+            String strSelect =
+                    "SELECT Name, country, Population"
+                    + "FROM "
+                    + "WHERE ";
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get employee details");
+            return null;
+        }
+        return null;
     }
 }
