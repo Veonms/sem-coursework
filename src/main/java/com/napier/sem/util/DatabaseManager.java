@@ -1,8 +1,11 @@
 package com.napier.sem.util;
 
+import com.napier.sem.data.Capital;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * <h1>Database Manager</h1>
@@ -67,5 +70,21 @@ public class DatabaseManager {
                 System.out.println("Error closing connection to database");
             }
         }
+    }
+    public Capital getCapital(){
+        try{
+            Statement stmt = conn.createStatement();
+
+            String strSelect =
+                    "SELECT name, country, population"
+                    + "FROM "
+                    + "WHERE ";
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get employee details");
+            return null;
+        }
+        return null;
     }
 }
