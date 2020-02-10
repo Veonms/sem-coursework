@@ -1,8 +1,7 @@
 package com.napier.sem.data;
 
 /**
- * <h1>Population</h1>
- * <p>Stores the shit related to populations</p>
+ * Stores the stuff related to populations
  *
  * @author Group 16
  * @version 0.1.0.2

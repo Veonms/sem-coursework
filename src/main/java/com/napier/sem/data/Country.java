@@ -5,8 +5,7 @@ import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
- * <h1>Country</h1>
- * <p>Stores the stuff related to countries</p>
+ * Stores the stuff related to countries
  *
  * @author Group 16
  * @version 0.1.0.2

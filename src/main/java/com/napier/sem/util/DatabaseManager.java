@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /**
- * <h1>Database Manager</h1>
- * <p>Class responsible for managing the connections to the SQL database.</p>
+ * Class responsible for managing the connections to the SQL database.
+ * This class makes use of the Singleton design pattern.
  *
  * @author Group 16
  * @version 0.1.0.2
@@ -20,6 +20,10 @@ public class DatabaseManager {
     private DatabaseManager() {
     }
 
+    /**
+     * Get an instance of the class, and if it doesn't exist the method will create one.
+     * @return An instance of this class.
+     */
     public static DatabaseManager getInstance() {
         if (instance == null) {
             instance = new DatabaseManager();
@@ -27,7 +31,17 @@ public class DatabaseManager {
         return instance;
     }
 
-    public void connect() {
+    /**
+     * This method will connect to the MySQL database after waiting 15 seconds.
+     * It will retry until it succeeds, or runs out of attempts.
+     * @param attempts The amount of attempts the application has at connecting to the database.
+     * @param port The port the database runs on.
+     * @param database The database to run off.
+     * @param user The specified username.
+     * @param pass A specified password.
+     * @param useSSL Whether or not you wish to use SSL to connect.
+     */
+    public void connect(int attempts, int port, String database, String user, String pass, boolean useSSL) {
         try {
             // Load Database driver
             Class.forName("com.mysql.jdbc.Driver");
@@ -36,18 +50,17 @@ public class DatabaseManager {
             System.exit(-1);
         }
 
-        int retries = Integer.MAX_VALUE;
-        for (int i = 0; i < retries; ++i) {
+        for (int i = 0; i < attempts; ++i) {
             System.out.println("Connecting to database...");
             try {
                 // Wait a bit for db to start
                 Thread.sleep(15000);
                 // Connect to database
-                conn = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                conn = DriverManager.getConnection("jdbc:mysql://db:" + port + "/" + database + "?useSSL=" + useSSL, user, pass);
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
@@ -68,6 +81,4 @@ public class DatabaseManager {
             }
         }
     }
-
-
 }
