@@ -158,6 +158,7 @@ public class Country {
      * This method sets the year of independence.
      * @param independence The year the country went independent.
      */
+    @SuppressWarnings(value = "deprecated")
     public void setIndependence(int independence) {
         Date date = new Date();
 
