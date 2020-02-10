@@ -40,7 +40,8 @@ public class Country {
 
     /**
      * This method sets the 3-character country code.
-     * @param code The code to be set (must be 3 characters).
+     * The code can't be anything other than 3 characters.
+     * @param code The code to be set.
      */
     public void setCode(String code) {
         if (code.length() == 3) {
@@ -61,7 +62,8 @@ public class Country {
 
     /**
      * This method sets the country name.
-     * @param name The country name to be set (no more than 52 characters).
+     * The name of a country can be no longer than 52 characters.
+     * @param name The country name to be set.
      */
     public void setName(String name) {
         if (name.length() > 52) {
@@ -82,7 +84,8 @@ public class Country {
 
     /**
      * This method sets the name of the continent where the country is located.
-     * @param continent The continent name to be set (must match one of the 7 continents).
+     * The continent must match one of the 7 continents.
+     * @param continent The continent name to be set.
      */
     public void setContinent(String continent) {
         switch(continent) {
@@ -112,7 +115,8 @@ public class Country {
 
     /**
      * This method sets the region of the country.
-     * @param region The region to be set (no longer than 26 characters).
+     * The region name can be no longer than 26 characters.
+     * @param region The region to be set.
      */
     public void setRegion(String region) {
         if (name.length() > 26) {
@@ -132,7 +136,8 @@ public class Country {
 
     /**
      * Set the surface area of a given country.
-     * @param surfaceArea The surface area to be set (rounded to 2 decimal places).
+     * The data will be rounded to 2 decimal places.
+     * @param surfaceArea The surface area to be set.
      */
     public void setSurfaceArea(double surfaceArea) {
         DecimalFormat df = new DecimalFormat("###.##");
@@ -186,7 +191,6 @@ public class Country {
         return lifeExpectancy;
     }
 
-
     /**
      * Set the life expectancy for a country.
      * @param lifeExpectancy The life expectancy to get set.
@@ -209,27 +213,61 @@ public class Country {
     }
 
     /**
+     * Gross National Product is a broad measure of a nation's total economic activity.
+     * i.e. all finished goods and services provided in 1 year by the nationals.
      *
+     * This function will set the GNP for the specified country.
      * @param grossNationalProduct
      */
     public void setGrossNationalProduct(double grossNationalProduct) {
-        this.grossNationalProduct = grossNationalProduct;
+        DecimalFormat df = new DecimalFormat("###.##");
+        df.setRoundingMode(RoundingMode.HALF_EVEN); // Sets a rounding format for the data.
+        this.grossNationalProduct = Double.parseDouble(df.format(grossNationalProduct));
     }
 
+    /**
+     * Gross National Product is a broad measure of a nation's total economic activity.
+     * i.e. all finished goods and services provided in 1 year by the nationals.
+     *
+     * This function will grab the old GNP for the specified country.
+     * @return The previous/old GNP.
+     */
     public double getOldGrossNationalProduct() {
         return oldGrossNationalProduct;
     }
 
+    /**
+     * Gross National Product is a broad measure of a nation's total economic activity.
+     * i.e. all finished goods and services provided in 1 year by the nationals.
+     *
+     * This function will set the prior/old GNP for the specified country.
+     * @param oldGrossNationalProduct
+     */
     public void setOldGrossNationalProduct(double oldGrossNationalProduct) {
-        this.oldGrossNationalProduct = oldGrossNationalProduct;
+        DecimalFormat df = new DecimalFormat("###.##");
+        df.setRoundingMode(RoundingMode.HALF_EVEN); // Sets a rounding format for the data.
+        this.oldGrossNationalProduct = Double.parseDouble(df.format(oldGrossNationalProduct));
     }
 
+    /**
+     * This function will set the name the locals give to the country.
+     * @return The local name of the country.
+     */
     public String getLocalName() {
         return localName;
     }
 
+    /**
+     * This method will set the name of the country the locals give it.
+     * There is a length constraint of 45 characters.
+     * @param localName The local name of the country.
+     */
     public void setLocalName(String localName) {
-        this.localName = localName;
+        if (localName.length() > 45) {
+            System.out.println("Couldn't set local country name: " + localName + ", name set to: ''");
+        } else {
+            this.localName = localName;
+        }
     }
 
     public String getGovernment() {
