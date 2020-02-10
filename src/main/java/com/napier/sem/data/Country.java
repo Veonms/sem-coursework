@@ -6,7 +6,7 @@ import java.util.Date;
 
 /**
  * <h1>Country</h1>
- * <p>Stores the shit related to countries</p>
+ * <p>Stores the stuff related to countries</p>
  *
  * @author Group 16
  * @version 0.1.0.2
