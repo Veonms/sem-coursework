@@ -19,27 +19,45 @@ public class DatabaseManager {
         return instance;
     }
 
-    public void connect(String host, int port, String database, String user, String pass) {
+    public void connect() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (Exception e) {
-            e.printStackTrace();
+            // Load Database driver
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Could not load SQL driver");
+            System.exit(-1);
         }
 
-        try {
-            conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, user, pass);
-            System.out.println("we in mfs");
-        } catch (SQLException e) {
-            System.out.println("we not in mfs");
-            e.printStackTrace();
+        int retries = Integer.MAX_VALUE;
+        for (int i = 0; i < retries; ++i) {
+            System.out.println("Connecting to database...");
+            try {
+                // Wait a bit for db to start
+                Thread.sleep(5000);
+                // Connect to database
+                conn = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
+                System.out.println("Successfully connected");
+                break;
+            } catch (SQLException sqle) {
+                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
+                System.out.println(sqle.getMessage());
+            } catch (InterruptedException ie) {
+                System.out.println("Thread interrupted? Should not happen.");
+            }
         }
     }
 
+    /**
+     * Disconnect from the MySQL database.
+     */
     public void disconnect() {
-        try {
-            conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (conn != null) {
+            try {
+                // Close connection
+                conn.close();
+            } catch (Exception e) {
+                System.out.println("Error closing connection to database");
+            }
         }
     }
 }

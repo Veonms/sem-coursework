@@ -14,9 +14,7 @@ public class App {
 
     public static void main(String[] args) {
         DatabaseManager dbm = DatabaseManager.getInstance();
-
-        dbm.connect("localhost", 3306, "world", "root", "example");
-
+        dbm.connect();
         dbm.disconnect();
     }
 }
