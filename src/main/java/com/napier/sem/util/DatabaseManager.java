@@ -4,6 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * <h1>Database Manager</h1>
+ * <p>Class responsible for managing the connections to the SQL database.</p>
+ *
+ * @author Group 16
+ * @version 0.1.0.2
+ * @since 2020/10/02
+ */
 public class DatabaseManager {
 
     private static DatabaseManager instance = null;
@@ -33,7 +41,7 @@ public class DatabaseManager {
             System.out.println("Connecting to database...");
             try {
                 // Wait a bit for db to start
-                Thread.sleep(5000);
+                Thread.sleep(15000);
                 // Connect to database
                 conn = DriverManager.getConnection("jdbc:mysql://db:3306/world?useSSL=false", "root", "example");
                 System.out.println("Successfully connected");
