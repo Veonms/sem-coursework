@@ -121,6 +121,7 @@ public class Country {
     public void setRegion(String region) {
         if (name.length() > 26) {
             System.out.println("Couldn't set country region: " + region + ", region set to: ' '");
+            this.region = "";
         } else {
             this.region = region;
         }
@@ -204,9 +205,10 @@ public class Country {
     /**
      * Gross National Product is a broad measure of a nation's total economic activity.
      * i.e. all finished goods and services provided in 1 year by the nationals.
-     *
+     * <p>
      * This function will grab the GNP for the specified country.
-     * @return
+     *
+     * @return The current GNP for the specified country.
      */
     public double getGrossNationalProduct() {
         return grossNationalProduct;
@@ -217,7 +219,7 @@ public class Country {
      * i.e. all finished goods and services provided in 1 year by the nationals.
      *
      * This function will set the GNP for the specified country.
-     * @param grossNationalProduct
+     * @param grossNationalProduct The current GNP to be set.
      */
     public void setGrossNationalProduct(double grossNationalProduct) {
         DecimalFormat df = new DecimalFormat("###.##");
@@ -241,7 +243,7 @@ public class Country {
      * i.e. all finished goods and services provided in 1 year by the nationals.
      *
      * This function will set the prior/old GNP for the specified country.
-     * @param oldGrossNationalProduct
+     * @param oldGrossNationalProduct The prior GNP to be set.
      */
     public void setOldGrossNationalProduct(double oldGrossNationalProduct) {
         DecimalFormat df = new DecimalFormat("###.##");
@@ -265,40 +267,99 @@ public class Country {
     public void setLocalName(String localName) {
         if (localName.length() > 45) {
             System.out.println("Couldn't set local country name: " + localName + ", name set to: ''");
+            this.localName = "";
         } else {
             this.localName = localName;
         }
     }
 
+    /**
+     * This method will get the name of the government form.
+     *
+     * @return The name of government
+     */
     public String getGovernment() {
         return government;
     }
 
+    /**
+     * Set the name of the government form for a given country.
+     * There is a length constraint of 45 characters.
+     *
+     * @param government The name of the government to be set.
+     */
     public void setGovernment(String government) {
-        this.government = government;
+        if (localName.length() > 45) {
+            System.out.println("Couldn't set government name: " + government + ", name set to: ''");
+            this.government = "";
+        } else {
+            this.government = government;
+        }
     }
 
+    /**
+     * This method will fetch the head of state of a given country
+     *
+     * @return The head of state.
+     */
     public String getStateHead() {
         return stateHead;
     }
 
+    /**
+     * This method can modify the value of the head of state for a given country.
+     * There is a length constraint of 60 characters.
+     *
+     * @param stateHead The name of the new head of state.
+     */
     public void setStateHead(String stateHead) {
-        this.stateHead = stateHead;
+        if (stateHead.length() > 60) {
+            System.out.println("Can't set the head of state: " + stateHead + ", value set to: ''");
+            this.stateHead = "";
+        } else {
+            this.stateHead = stateHead;
+        }
     }
 
+    /**
+     * This method will return the capital of the country
+     *
+     * @return The capital
+     */
     public int getCapital() {
         return capital;
     }
 
+    /**
+     * This method will set the capital of a given country
+     *
+     * @param capital The capital to be set
+     */
     public void setCapital(int capital) {
         this.capital = capital;
     }
 
+    /**
+     * This method will set an alternate code for a country.
+     *
+     * @return Another country code.
+     */
     public String getCode2() {
         return code2;
     }
 
+    /**
+     * This method will set/update a 2-character country code.
+     * There is a length constraint of 2 characters.
+     *
+     * @param code2 An alternate country code.
+     */
     public void setCode2(String code2) {
-        this.code2 = code2;
+        if (code2.length() == 2) {
+            this.code2 = code2;
+        } else {
+            System.out.println("Couldn't set country code: " + code2 + ", code set to: ''");
+            this.code2 = "";
+        }
     }
 }
