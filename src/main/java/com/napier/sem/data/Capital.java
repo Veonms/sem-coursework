@@ -26,7 +26,12 @@ public class Capital {
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        if (country.length() > 52) {
+            System.out.println("Couldn't set country name: " + country + ", name set to: ''");
+            this.country = "";
+        } else {
+            this.country = country;
+        }
     }
 
     public String getPopulation() {
