@@ -44,7 +44,7 @@ public class DatabaseManager {
     public void connect(int attempts, int port, String database, String user, String pass, boolean useSSL) {
         try {
             // Load Database driver
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("Could not load SQL driver");
             System.exit(-1);
@@ -54,7 +54,7 @@ public class DatabaseManager {
             System.out.println("Connecting to database...");
             try {
                 // Wait a bit for db to start
-                Thread.sleep(15000);
+                Thread.sleep(10000);
                 // Connect to database
                 conn = DriverManager.getConnection("jdbc:mysql://db:" + port + "/" + database + "?useSSL=" + useSSL, user, pass);
                 System.out.println("Successfully connected");
