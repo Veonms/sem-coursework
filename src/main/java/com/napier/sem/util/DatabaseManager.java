@@ -1,8 +1,6 @@
 package com.napier.sem.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * <h1>Database Manager</h1>
@@ -54,6 +52,34 @@ public class DatabaseManager {
             }
         }
     }
+
+    public void sqlstatements(String s){
+
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            System.out.println("hellow");
+            ResultSet rs = stmt.executeQuery(s);
+            while(rs.next()){
+                String name = rs.getString("Name");
+                String country = rs.getString("CountryCode");
+                String District = rs.getString("District");
+                int population = rs.getInt("Population");
+
+                System.out.println(name + "\t" + country + "\t" + District + "\t" + population);
+            }
+            System.out.println("hellowworkie");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.out.println("hellowyesfail");
+        }
+
+
+    }
+
+
+
 
     /**
      * Disconnect from the MySQL database.

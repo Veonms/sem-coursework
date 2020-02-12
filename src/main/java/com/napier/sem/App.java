@@ -15,6 +15,10 @@ public class App {
     public static void main(String[] args) {
         DatabaseManager dbm = DatabaseManager.getInstance();
         dbm.connect();
+        String statement = "select Name, CountryCode, District, Population" + "from world";
+        System.out.println(statement);
+        dbm.sqlstatements(statement);
+        System.out.println("if you see this then it didnt work");
         dbm.disconnect();
     }
 }
