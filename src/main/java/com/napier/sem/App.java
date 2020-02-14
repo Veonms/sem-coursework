@@ -18,6 +18,9 @@ public class App {
     public static void main(String[] args) {
         DatabaseManager dbm = DatabaseManager.getInstance();
         dbm.connect(10, 3306, "world", "root", "example", false);
+
+        dbm.sqlStatements("SELECT * FROM city;");
+
         dbm.disconnect();
     }
 }

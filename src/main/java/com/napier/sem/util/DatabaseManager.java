@@ -1,8 +1,6 @@
 package com.napier.sem.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  * Class responsible for managing the connections to the SQL database.
@@ -79,6 +77,24 @@ public class DatabaseManager {
             } catch (Exception e) {
                 System.out.println("Error closing connection to database");
             }
+        }
+    }
+
+    public void sqlStatements(String sql) {
+        try {
+            Statement stmt = conn.createStatement();
+
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String name = rs.getString("Name");
+                String country = rs.getString("CountryCode");
+                String District = rs.getString("District");
+                int population = rs.getInt("Population");
+
+                System.out.println(name + "\t" + country + "\t" + District + "\t" + population);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
