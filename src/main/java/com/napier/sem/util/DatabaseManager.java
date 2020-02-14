@@ -1,5 +1,8 @@
 package com.napier.sem.util;
 
+import com.napier.sem.data.City;
+import com.napier.sem.data.Country;
+
 import java.sql.*;
 
 /**
@@ -15,8 +18,7 @@ public class DatabaseManager {
     private static DatabaseManager instance = null;
     private Connection conn;
 
-    private DatabaseManager() {
-    }
+    private DatabaseManager() {}
 
     /**
      * Get an instance of the class, and if it doesn't exist the method will create one.
@@ -80,19 +82,25 @@ public class DatabaseManager {
         }
     }
 
-    public void sqlStatements(String sql) {
+    public void createCities() {
         try {
             Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM city");
 
-            ResultSet rs = stmt.executeQuery(sql);
+            NumberSingleton ns = NumberSingleton.getInstance();
             while (rs.next()) {
-                String name = rs.getString("Name");
-                String country = rs.getString("CountryCode");
-                String District = rs.getString("District");
-                int population = rs.getInt("Population");
 
-                System.out.println(name + "\t" + country + "\t" + District + "\t" + population);
+                City c = new City(rs.getString("name"),
+                        rs.getString("countrycode"),
+                        rs.getString("district"),
+                        rs.getInt("population"));
+
+                City.getCities().put(ns.getCity(), c);
             }
+
+            System.out.println("Added cities to map, proof?\n");
+            City.getCities().forEach((k, v) -> System.out.println(k + ": " + v));
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

@@ -1,5 +1,10 @@
 package com.napier.sem.data;
 
+import com.napier.sem.util.NumberSingleton;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Stores all the data regarding cities.
  * ID field has been omitted from the class as it's a surrogate key for the database.
@@ -13,6 +18,16 @@ public class City {
     private String countryCode;
     private String district;
     private int population;
+    private static Map<Integer, City> cities = new HashMap<>();
+
+    private City() {}
+
+    public City(String name, String countryCode, String district, int population) {
+        this.name = name;
+        this.countryCode = countryCode;
+        this.district = district;
+        this.population = population;
+    }
 
     /**
      * Fetches the name of the city within a given country.
@@ -89,5 +104,19 @@ public class City {
      */
     public void setPopulation(int population) {
         this.population = population;
+    }
+
+    /**
+     * This method returns a list of the city objects.
+     * This makes the program slightly quicker, as instead of querying the database constantly, we will save the data as objects and close the db connection.
+     * @return The map of cities in ascending order.
+     */
+    public static Map<Integer, City> getCities() {
+        return cities;
+    }
+
+    @Override
+    public String toString() {
+        return "[Name: " + name + ", Country-Code: " + countryCode + ", District: " + district + ", Population: " + population + "]";
     }
 }
