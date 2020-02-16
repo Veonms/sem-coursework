@@ -5,15 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.napier.sem</groupId>
-    <artifactId>seMethods</artifactId>
-    <version>0.1.0.2</version>
+    <artifactId>sem-coursework</artifactId>
+    <version>0.1.0.3</version>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>3.6.4</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.19</version>
         </dependency>
+
     </dependencies>
 
     <properties>
