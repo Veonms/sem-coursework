@@ -1,9 +1,6 @@
 package com.napier.sem;
 
-import com.napier.sem.data.Capital;
 import com.napier.sem.util.DatabaseManager;
-
-import java.sql.Statement;
 
 /**
 * <h1>SEM Coursework</h1>
@@ -20,6 +17,7 @@ public class App {
         dbm.connect(10, 3306, "world", "root", "example", false);
 
         dbm.createCities();
+        dbm.createCountry();
 
         dbm.disconnect();
     }

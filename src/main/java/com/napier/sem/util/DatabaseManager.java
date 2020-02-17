@@ -1,6 +1,7 @@
 package com.napier.sem.util;
 
 import com.napier.sem.data.City;
+import com.napier.sem.data.Country;
 
 import java.sql.*;
 
@@ -84,7 +85,7 @@ public class DatabaseManager {
     public void createCities() {
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM city ORDER BY population DESC");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC ");
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while (rs.next()) {
@@ -102,6 +103,43 @@ public class DatabaseManager {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+
+        }
+    }
+
+    public void createCountry() {
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM country ");
+
+            NumberSingleton ns = NumberSingleton.getInstance();
+            while (rs.next()) {
+
+                Country coun = new Country(rs.getString("code"),
+                        rs.getString("name"),
+                        rs.getString("continent"),
+                        rs.getString("region"),
+                        rs.getDouble("surfaceArea"),
+                        rs.getInt("indepYear"),
+                        rs.getInt("population"),
+                        rs.getDouble("lifeExpectancy"),
+                        rs.getDouble("GNP"),
+                        rs.getDouble("GNPOld"),
+                        rs.getString("LocalName"),
+                        rs.getString("GovernmentForm"),
+                        rs.getString("HeadOfState"),
+                        rs.getInt("capital"),
+                        rs.getString("code2"));
+
+                Country.getCountries().put(ns.getCountry(), coun);
+            }
+
+            System.out.println("Added countries to map, proof?\n");
+            Country.getCountries().forEach((k, v) -> System.out.println(k + ": " + v));
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
         }
     }
 }

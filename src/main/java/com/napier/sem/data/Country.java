@@ -3,6 +3,8 @@ package com.napier.sem.data;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Stores the stuff related to countries
@@ -31,8 +33,46 @@ public class Country {
     private int capital;
     private String code2;
 
+    private static Map<Integer, Country> cont = new HashMap<>();
+
+    /**
+     * @param code
+     * @param name
+     * @param continent
+     * @param region
+     * @param surfaceArea
+     * @param independence
+     * @param population
+     * @param lifeExpectancy
+     * @param grossNationalProduct
+     * @param oldGrossNationalProduct
+     * @param localName
+     * @param government
+     * @param stateHead
+     * @param capital
+     * @param code2                   will add comment later
+     */
+    public Country(String code, String name, String continent, String region, double surfaceArea, int independence, int population, double lifeExpectancy, double grossNationalProduct, double oldGrossNationalProduct, String localName, String government, String stateHead, int capital, String code2) {
+        this.code = code;
+        this.name = name;
+        this.continent = continent;
+        this.region = region;
+        this.surfaceArea = surfaceArea;
+        this.independence = independence;
+        this.population = population;
+        this.lifeExpectancy = lifeExpectancy;
+        this.grossNationalProduct = grossNationalProduct;
+        this.oldGrossNationalProduct = oldGrossNationalProduct;
+        this.localName = localName;
+        this.government = government;
+        this.stateHead = stateHead;
+        this.capital = capital;
+        this.code2 = code2;
+    }
+
     /**
      * This method returns the 3 character country code.
+     *
      * @return The country code.
      */
     public String getCode() {
@@ -362,5 +402,30 @@ public class Country {
             System.out.println("Couldn't set country code: " + code2 + ", code set to: ''");
             this.code2 = "";
         }
+    }
+
+    public static Map<Integer, Country> getCountries() {
+        return cont;
+    }
+
+    @Override
+    public String toString() {
+        return "[" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", continent='" + continent + '\'' +
+                ", region='" + region + '\'' +
+                ", surfaceArea=" + surfaceArea +
+                ", independence=" + independence +
+                ", population=" + population +
+                ", lifeExpectancy=" + lifeExpectancy +
+                ", grossNationalProduct=" + grossNationalProduct +
+                ", oldGrossNationalProduct=" + oldGrossNationalProduct +
+                ", localName='" + localName + '\'' +
+                ", government='" + government + '\'' +
+                ", stateHead='" + stateHead + '\'' +
+                ", capital=" + capital +
+                ", code2='" + code2 + '\'' +
+                ']';
     }
 }
