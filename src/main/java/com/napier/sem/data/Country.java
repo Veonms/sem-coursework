@@ -36,21 +36,21 @@ public class Country {
     private static Map<Integer, Country> cont = new HashMap<>();
 
     /**
-     * @param code
-     * @param name
-     * @param continent
-     * @param region
-     * @param surfaceArea
-     * @param independence
-     * @param population
-     * @param lifeExpectancy
-     * @param grossNationalProduct
-     * @param oldGrossNationalProduct
-     * @param localName
-     * @param government
-     * @param stateHead
-     * @param capital
-     * @param code2                   will add comment later
+     * @param code The country code
+     * @param name The name of the country
+     * @param continent The continent the country belongs in
+     * @param region A region of the country
+     * @param surfaceArea The surface area of a country (m^2)
+     * @param independence The year the country went independent
+     * @param population The total population of the country
+     * @param lifeExpectancy The average life expectancy
+     * @param grossNationalProduct The GNP of the country
+     * @param oldGrossNationalProduct The previous GNP of a country
+     * @param localName What the locals call the country
+     * @param government The current government
+     * @param stateHead The current head of state
+     * @param capital The capital city
+     * @param code2 The alternate country code
      */
     public Country(String code, String name, String continent, String region, double surfaceArea, int independence, int population, double lifeExpectancy, double grossNationalProduct, double oldGrossNationalProduct, String localName, String government, String stateHead, int capital, String code2) {
         this.code = code;

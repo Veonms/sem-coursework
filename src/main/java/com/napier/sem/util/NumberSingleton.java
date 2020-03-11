@@ -40,8 +40,4 @@ public class NumberSingleton {
     public int getPopulation() { // gets called for population
         return population += 1;
     }
-
-    public int getCapital() { // gets called for captial cities
-        return capital += 1;
-    }
 }

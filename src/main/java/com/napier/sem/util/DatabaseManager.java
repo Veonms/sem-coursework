@@ -82,7 +82,7 @@ public class DatabaseManager {
         }
     }
 
-    public void createCities() {
+    public void populate() {
         try {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC ");
@@ -96,50 +96,40 @@ public class DatabaseManager {
                         rs.getInt("population"));
 
                 City.getCities().put(ns.getCity(), c);
+                System.out.println(City.getCities().size());
             }
-
-            System.out.println("Added cities to map, proof?\n");
-            City.getCities().forEach((k, v) -> System.out.println(k + ": " + v));
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-
         }
-    }
 
-    public void createCountry() {
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM country ");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC");
 
             NumberSingleton ns = NumberSingleton.getInstance();
-            while (rs.next()) {
-
-                Country coun = new Country(rs.getString("code"),
+            while(rs.next()) {
+                Country c = new Country(rs.getString("code"),
                         rs.getString("name"),
                         rs.getString("continent"),
                         rs.getString("region"),
-                        rs.getDouble("surfaceArea"),
-                        rs.getInt("indepYear"),
+                        rs.getDouble("surfacearea"),
+                        rs.getInt("indepyear"),
                         rs.getInt("population"),
-                        rs.getDouble("lifeExpectancy"),
-                        rs.getDouble("GNP"),
-                        rs.getDouble("GNPOld"),
-                        rs.getString("LocalName"),
-                        rs.getString("GovernmentForm"),
-                        rs.getString("HeadOfState"),
+                        rs.getDouble("lifeexpectancy"),
+                        rs.getDouble("gnp"),
+                        rs.getDouble("gnpold"),
+                        rs.getString("localname"),
+                        rs.getString("governmentform"),
+                        rs.getString("headofstate"),
                         rs.getInt("capital"),
                         rs.getString("code2"));
 
-                Country.getCountries().put(ns.getCountry(), coun);
+                Country.getCountries().put(ns.getCountry(), c);
+                System.out.println(Country.getCountries().size());
             }
 
-            System.out.println("Added countries to map, proof?\n");
-            Country.getCountries().forEach((k, v) -> System.out.println(k + ": " + v));
-
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
-
+            e.printStackTrace();
         }
     }
 }
