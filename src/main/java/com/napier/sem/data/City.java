@@ -117,6 +117,11 @@ public class City {
 
     @Override
     public String toString() {
-        return "[Name: " + name + ", Country-Code: " + countryCode + ", District: " + district + ", Population: " + population + "]";
+        return "City{" +
+                "name='" + name + '\'' +
+                ", countryCode='" + countryCode + '\'' +
+                ", district='" + district + '\'' +
+                ", population=" + population +
+                '}';
     }
 }

@@ -2,6 +2,7 @@ package com.napier.sem.util;
 
 import com.napier.sem.data.City;
 import com.napier.sem.data.Country;
+import com.napier.sem.data.CountryLanguage;
 
 import java.sql.*;
 
@@ -83,9 +84,11 @@ public class DatabaseManager {
     }
 
     public void populate() {
+        Statement stmt;
+        ResultSet rs;
         try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC ");
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC ");
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while (rs.next()) {
@@ -103,8 +106,8 @@ public class DatabaseManager {
         }
 
         try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC");
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC");
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while(rs.next()) {
@@ -128,6 +131,26 @@ public class DatabaseManager {
                 System.out.println(Country.getCountries().size());
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM countrylanguage");
+
+            while(rs.next()) {
+
+                boolean official = rs.getString("isofficial").equals("T");
+
+
+                CountryLanguage cl = new CountryLanguage(rs.getString("countrycode"),
+                        rs.getString("language"),
+                        official,
+                        rs.getDouble("percentage"));
+
+                CountryLanguage.getLanguages().put(NumberSingleton.getInstance().getCountryLanguage(), cl);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
