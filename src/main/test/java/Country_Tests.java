@@ -436,6 +436,30 @@ public class Country_Tests {
         Assertions.assertEquals(expected, testCountry.getCode2());
     }
 
+    @Test
+    void getCountries()
+    {
+        int key = 0;
+        Country country = new Country(code,
+                name,
+                continent,
+                region,
+                surfaceArea,
+                independence,
+                population,
+                lifeExpectancy,
+                grossNationalProduct,
+                oldGrossNationalProduct,
+                localName,
+                government,
+                stateHead,
+                capital,
+                code2);
+
+        Country.getCountries().put(key, country);
+        Assertions.assertEquals(country, Country.getCountries().get(key));
+    }
+
     /*
     Set Tests
 
@@ -443,7 +467,7 @@ public class Country_Tests {
 
     2 types of test for each field:
         1: Valid input
-        2: Valid input
+        2: Invalid input
     The value stored after the method is called will then be tested against the correct value
     */
 
