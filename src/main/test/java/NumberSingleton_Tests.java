@@ -43,15 +43,11 @@ class NumberSingleton_Tests
     {
         /*
         Tests that the NumberSingleton class maintains only one instance.
-        Tested by creating a NumberSingleton and modifying it,
-        then checking for that same modification in a 'new' NumberSingleton.
-        Tested after the 'get' methods because they are used for this test.
+        Tested by creating two new NumberSingletons and comparing them.
          */
         NumberSingleton ns = NumberSingleton.getInstance();
-        ns.getCity(); //Increments city value by 1
-
         NumberSingleton newNS = NumberSingleton.getInstance();
 
-        Assertions.assertEquals(2, newNS.getCity()); //A fresh NumberSingleton will return 1 instead of 2
+        Assertions.assertEquals(ns, newNS); //Will pass if they are the same instance stored in different variables
     }
 }
