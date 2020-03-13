@@ -45,6 +45,8 @@ public class City {
     public void setName(String name) {
         if (name.length() > 35) {
             System.out.println("Can't set the name: " + name + ", value set to: ''");
+        } else {
+            this.name = name;
         }
     }
 
@@ -59,7 +61,7 @@ public class City {
     /**
      * Sets the country code to a 3-character code.
      * The code must be 3 characters.
-     * @param countryCode
+     * @param countryCode The 3-character code to be associated with the city
      */
     public void setCountryCode(String countryCode) {
         if (countryCode.length() != 3) {
@@ -100,7 +102,7 @@ public class City {
 
     /**
      * This method sets the population value.
-     * @param population
+     * @param population The population of the city
      */
     public void setPopulation(int population) {
         this.population = population;

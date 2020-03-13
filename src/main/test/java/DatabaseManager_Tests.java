@@ -5,7 +5,6 @@ import com.napier.sem.util.NumberSingleton;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.util.DatabaseManager;
-import sun.jvm.hotspot.utilities.Assert;
 
 import javax.xml.crypto.Data;
 

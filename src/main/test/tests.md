@@ -13,9 +13,10 @@ Unit Tests
 - populate() will create a list of all the records
 in the connected database - *Implemented*
 
-**Country/Population/City**
-- 'get' functions return  the correct property
-- 'set' functions correctly change the property
+**City**
+- 'get' functions return  the correct property - *Implemented*
+- 'set' functions correctly change the property - *Implemented*
+- 'set' functions validate input correctly - *Implemented*
 
 **Country/City**
 - toString() returns an accurate representation of the data
