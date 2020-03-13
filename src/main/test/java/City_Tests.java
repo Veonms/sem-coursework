@@ -41,6 +41,7 @@ public class City_Tests {
     Tests involve creating a City with the relevant attribute set to a fixed value and then
     comparing that value with the result of the corresponding get method.
      */
+
     @Test
     void getName()
     {
@@ -90,7 +91,7 @@ public class City_Tests {
 
     Tests that set methods store data correctly and also validate the value being passed before storage.
 
-    2 types of test for each set:
+    2 types of test for each field:
         1: Valid input
         2: Valid input
     The value stored after the method is called will then be tested against the correct value

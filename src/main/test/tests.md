@@ -25,4 +25,4 @@ in the connected database - *Implemented*
 
 **Country/City**
 - toString() returns an accurate representation of the data
-in string format
+in string format - *Implemented*
