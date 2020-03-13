@@ -19,7 +19,7 @@ public class NumberSingleton {
     private int city = 0, country = 0, countryLanguage = 0; // private ints for each one
 
     /**
-     * the following if statement will check if the singelton exists and if it does another one can not be
+     * the following if statement will check if the singleton exists and if it does another one can not be
      * generated
      */
     public static NumberSingleton getInstance() {
