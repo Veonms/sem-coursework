@@ -88,7 +88,7 @@ public class DatabaseManager {
         ResultSet rs;
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC ");
+            rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC;");
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while (rs.next()) {
@@ -99,7 +99,6 @@ public class DatabaseManager {
                         rs.getInt("population"));
 
                 City.getCities().put(ns.getCity(), c);
-                System.out.println(City.getCities().size());
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -107,7 +106,7 @@ public class DatabaseManager {
 
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC");
+            rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC;");
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while(rs.next()) {
@@ -128,7 +127,6 @@ public class DatabaseManager {
                         rs.getString("code2"));
 
                 Country.getCountries().put(ns.getCountry(), c);
-                System.out.println(Country.getCountries().size());
             }
 
         } catch (SQLException e) {
@@ -137,7 +135,7 @@ public class DatabaseManager {
 
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM countrylanguage");
+            rs = stmt.executeQuery("SELECT * FROM countrylanguage;");
 
             while(rs.next()) {
 

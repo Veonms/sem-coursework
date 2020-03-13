@@ -1,5 +1,6 @@
 package com.napier.sem;
 
+import static com.napier.sem.util.Queries.*;
 import com.napier.sem.util.DatabaseManager;
 
 /**
@@ -15,9 +16,9 @@ public class App {
     public static void main(String[] args) {
         DatabaseManager dbm = DatabaseManager.getInstance();
         dbm.connect(10, 3306, "world", "root", "example", false);
-
         dbm.populate();
-
         dbm.disconnect();
+
+        worldCountries();
     }
 }
