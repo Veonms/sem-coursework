@@ -12,9 +12,10 @@ import java.util.Date;
  * @since 2020/10/02
  */
 
-@SuppressWarnings({"deprecated","unused"})
+@SuppressWarnings({"deprecated", "unused"})
 public class Country {
 
+    private static Map<Integer, Country> cont = new HashMap<>();
     private String code;
     private String name;
     private String continent;
@@ -31,6 +32,48 @@ public class Country {
     private int capital;
     private String code2;
 
+<<<<<<< HEAD
+=======
+    /**
+     * @param code                    The country code
+     * @param name                    The name of the country
+     * @param continent               The continent the country belongs in
+     * @param region                  A region of the country
+     * @param surfaceArea             The surface area of a country (m^2)
+     * @param independence            The year the country went independent
+     * @param population              The total population of the country
+     * @param lifeExpectancy          The average life expectancy
+     * @param grossNationalProduct    The GNP of the country
+     * @param oldGrossNationalProduct The previous GNP of a country
+     * @param localName               What the locals call the country
+     * @param government              The current government
+     * @param stateHead               The current head of state
+     * @param capital                 The capital city
+     * @param code2                   The alternate country code
+     */
+    public Country(String code, String name, String continent, String region, double surfaceArea, int independence, int population, double lifeExpectancy, double grossNationalProduct, double oldGrossNationalProduct, String localName, String government, String stateHead, int capital, String code2) {
+        this.code = code;
+        this.name = name;
+        this.continent = continent;
+        this.region = region;
+        this.surfaceArea = surfaceArea;
+        this.independence = independence;
+        this.population = population;
+        this.lifeExpectancy = lifeExpectancy;
+        this.grossNationalProduct = grossNationalProduct;
+        this.oldGrossNationalProduct = oldGrossNationalProduct;
+        this.localName = localName;
+        this.government = government;
+        this.stateHead = stateHead;
+        this.capital = capital;
+        this.code2 = code2;
+    }
+
+    public static Map<Integer, Country> getCountries() {
+        return cont;
+    }
+
+>>>>>>> develop
     /**
      * This method returns the 3 character country code.
      * @return The country code.
@@ -42,6 +85,7 @@ public class Country {
     /**
      * This method sets the 3-character country code.
      * The code can't be anything other than 3 characters.
+     *
      * @param code The code to be set.
      */
     public void setCode(String code) {
@@ -55,6 +99,7 @@ public class Country {
 
     /**
      * This method will retrieve the name of the country.
+     *
      * @return The country name.
      */
     public String getName() {
@@ -64,6 +109,7 @@ public class Country {
     /**
      * This method sets the country name.
      * The name of a country can be no longer than 52 characters.
+     *
      * @param name The country name to be set.
      */
     public void setName(String name) {
@@ -77,6 +123,7 @@ public class Country {
 
     /**
      * This method will retrieve the continent the country is situated.
+     *
      * @return The continent name to be set.
      */
     public String getContinent() {
@@ -86,10 +133,11 @@ public class Country {
     /**
      * This method sets the name of the continent where the country is located.
      * The continent must match one of the 7 continents.
+     *
      * @param continent The continent name to be set.
      */
     public void setContinent(String continent) {
-        switch(continent) {
+        switch (continent) {
             case "Africa":
             case "Antarctica":
             case "Asia":
@@ -108,6 +156,7 @@ public class Country {
 
     /**
      * This method will return the country's region.
+     *
      * @return The region of the country.
      */
     public String getRegion() {
@@ -117,6 +166,7 @@ public class Country {
     /**
      * This method sets the region of the country.
      * The region name can be no longer than 26 characters.
+     *
      * @param region The region to be set.
      */
     public void setRegion(String region) {
@@ -130,6 +180,7 @@ public class Country {
 
     /**
      * This method will fetch the surface area of a given country.
+     *
      * @return The surface area
      */
     public double getSurfaceArea() {
@@ -139,6 +190,7 @@ public class Country {
     /**
      * Set the surface area of a given country.
      * The data will be rounded to 2 decimal places.
+     *
      * @param surfaceArea The surface area to be set.
      */
     public void setSurfaceArea(double surfaceArea) {
@@ -149,6 +201,7 @@ public class Country {
 
     /**
      * Fetches the year the country gained independence.
+     *
      * @return The year a given country went independent.
      */
     public int getIndependence() {
@@ -157,12 +210,13 @@ public class Country {
 
     /**
      * This method sets the year of independence.
+     *
      * @param independence The year the country went independent.
      */
     public void setIndependence(int independence) {
         Date date = new Date();
 
-        if(independence > date.getYear()) {
+        if (independence > date.getYear()) {
             System.out.println("Couldn't set the date of independence to a future year!");
         } else {
             this.independence = independence;
@@ -171,6 +225,7 @@ public class Country {
 
     /**
      * Get the population of a given country.
+     *
      * @return The population of a country.
      */
     public int getPopulation() {
@@ -179,6 +234,7 @@ public class Country {
 
     /**
      * Set the population of a country.
+     *
      * @param population The population to be set.
      */
     public void setPopulation(int population) {
@@ -187,6 +243,7 @@ public class Country {
 
     /**
      * Get the life expectancy of a given country.
+     *
      * @return The life expectancy in years.
      */
     public double getLifeExpectancy() {
@@ -195,6 +252,7 @@ public class Country {
 
     /**
      * Set the life expectancy for a country.
+     *
      * @param lifeExpectancy The life expectancy to get set.
      */
     public void setLifeExpectancy(double lifeExpectancy) {
@@ -218,8 +276,9 @@ public class Country {
     /**
      * Gross National Product is a broad measure of a nation's total economic activity.
      * i.e. all finished goods and services provided in 1 year by the nationals.
-     *
+     * <p>
      * This function will set the GNP for the specified country.
+     *
      * @param grossNationalProduct The current GNP to be set.
      */
     public void setGrossNationalProduct(double grossNationalProduct) {
@@ -231,8 +290,9 @@ public class Country {
     /**
      * Gross National Product is a broad measure of a nation's total economic activity.
      * i.e. all finished goods and services provided in 1 year by the nationals.
-     *
+     * <p>
      * This function will grab the old GNP for the specified country.
+     *
      * @return The previous/old GNP.
      */
     public double getOldGrossNationalProduct() {
@@ -242,8 +302,9 @@ public class Country {
     /**
      * Gross National Product is a broad measure of a nation's total economic activity.
      * i.e. all finished goods and services provided in 1 year by the nationals.
-     *
+     * <p>
      * This function will set the prior/old GNP for the specified country.
+     *
      * @param oldGrossNationalProduct The prior GNP to be set.
      */
     public void setOldGrossNationalProduct(double oldGrossNationalProduct) {
@@ -254,6 +315,7 @@ public class Country {
 
     /**
      * This function will set the name the locals give to the country.
+     *
      * @return The local name of the country.
      */
     public String getLocalName() {
@@ -263,6 +325,7 @@ public class Country {
     /**
      * This method will set the name of the country the locals give it.
      * There is a length constraint of 45 characters.
+     *
      * @param localName The local name of the country.
      */
     public void setLocalName(String localName) {
@@ -363,4 +426,28 @@ public class Country {
             this.code2 = "";
         }
     }
+<<<<<<< HEAD
+=======
+
+    @Override
+    public String toString() {
+        return "[" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", continent='" + continent + '\'' +
+                ", region='" + region + '\'' +
+                ", surfaceArea=" + surfaceArea +
+                ", independence=" + independence +
+                ", population=" + population +
+                ", lifeExpectancy=" + lifeExpectancy +
+                ", grossNationalProduct=" + grossNationalProduct +
+                ", oldGrossNationalProduct=" + oldGrossNationalProduct +
+                ", localName='" + localName + '\'' +
+                ", government='" + government + '\'' +
+                ", stateHead='" + stateHead + '\'' +
+                ", capital=" + capital +
+                ", code2='" + code2 + '\'' +
+                ']';
+    }
+>>>>>>> develop
 }
