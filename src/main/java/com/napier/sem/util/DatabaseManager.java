@@ -19,10 +19,12 @@ public class DatabaseManager {
     private static DatabaseManager instance = null;
     private Connection conn;
 
-    private DatabaseManager() {}
+    private DatabaseManager() {
+    }
 
     /**
      * Get an instance of the class, and if it doesn't exist the method will create one.
+     *
      * @return An instance of this class.
      */
     public static DatabaseManager getInstance() {
@@ -35,12 +37,13 @@ public class DatabaseManager {
     /**
      * This method will connect to the MySQL database after waiting 15 seconds.
      * It will retry until it succeeds, or runs out of attempts.
+     *
      * @param attempts The amount of attempts the application has at connecting to the database.
-     * @param port The port the database runs on.
+     * @param port     The port the database runs on.
      * @param database The database to run off.
-     * @param user The specified username.
-     * @param pass A specified password.
-     * @param useSSL Whether or not you wish to use SSL to connect.
+     * @param user     The specified username.
+     * @param pass     A specified password.
+     * @param useSSL   Whether or not you wish to use SSL to connect.
      * @return True on connection, false if connection fails somehow.
      */
     public boolean connect(int attempts, int port, String database, String user, String pass, boolean useSSL) {
@@ -73,6 +76,7 @@ public class DatabaseManager {
 
     /**
      * Disconnect from the MySQL database.
+     *
      * @return True on a successful disconnect, false otherwise.
      */
     public boolean disconnect() {
@@ -93,7 +97,7 @@ public class DatabaseManager {
         ResultSet rs;
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC ");
+            rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC;");
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while (rs.next()) {
@@ -104,7 +108,6 @@ public class DatabaseManager {
                         rs.getInt("population"));
 
                 City.getCities().put(ns.getCity(), c);
-                System.out.println(City.getCities().size());
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -112,10 +115,10 @@ public class DatabaseManager {
 
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC");
+            rs = stmt.executeQuery("SELECT * FROM country ORDER BY population DESC;");
 
             NumberSingleton ns = NumberSingleton.getInstance();
-            while(rs.next()) {
+            while (rs.next()) {
                 Country c = new Country(rs.getString("code"),
                         rs.getString("name"),
                         rs.getString("continent"),
@@ -133,7 +136,6 @@ public class DatabaseManager {
                         rs.getString("code2"));
 
                 Country.getCountries().put(ns.getCountry(), c);
-                System.out.println(Country.getCountries().size());
             }
 
         } catch (SQLException e) {
@@ -142,9 +144,9 @@ public class DatabaseManager {
 
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM countrylanguage");
+            rs = stmt.executeQuery("SELECT * FROM countrylanguage;");
 
-            while(rs.next()) {
+            while (rs.next()) {
 
                 boolean official = rs.getString("isofficial").equals("T");
 

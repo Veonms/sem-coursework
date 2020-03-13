@@ -2,22 +2,26 @@ package com.napier.sem;
 
 import com.napier.sem.util.DatabaseManager;
 
+import static com.napier.sem.util.Queries.countriesInContinent;
+import static com.napier.sem.util.Queries.worldCountries;
+
 /**
-* <h1>SEM Coursework</h1>
-* <p>Program to provide a simple source of population data.</p>
-* 
-* @author Group 16
-* @version 0.1.0.2
-* @since 2020/27/01
-*/
+ * <h1>SEM Coursework</h1>
+ * <p>Program to provide a simple source of population data.</p>
+ *
+ * @author Group 16
+ * @version 0.1.0.2
+ * @since 2020/27/01
+ */
 public class App {
 
     public static void main(String[] args) {
         DatabaseManager dbm = DatabaseManager.getInstance();
         dbm.connect(10, 3306, "world", "root", "example", false);
-
         dbm.populate();
-
         dbm.disconnect();
+
+        worldCountries();
+        countriesInContinent("Asia");
     }
 }

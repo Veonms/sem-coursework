@@ -8,17 +8,18 @@ import java.util.Map;
  */
 public class CountryLanguage {
 
+    private static Map<Integer, CountryLanguage> languages = new HashMap<>();
     private String countryCode;
     private String language;
     private boolean official;
     private double percentage;
 
-    private static Map<Integer, CountryLanguage> languages = new HashMap<>();
-
-    private CountryLanguage(){}
+    private CountryLanguage() {
+    }
 
     /**
      * This is the default constructor for the class.
+     *
      * @param countryCode
      * @param language
      * @param official
@@ -32,6 +33,13 @@ public class CountryLanguage {
     }
 
     /**
+     * @return The languages map which contains all the information for all the countries in the world.
+     */
+    public static Map<Integer, CountryLanguage> getLanguages() {
+        return languages;
+    }
+
+    /**
      * @return The 3-letter country code
      */
     public String getCountryCode() {
@@ -41,6 +49,7 @@ public class CountryLanguage {
     /**
      * This method is responsible for setting the country code.
      * NOTE: There is a constraint: code must be 3 letters
+     *
      * @param countryCode The code to be set.
      */
     public void setCountryCode(String countryCode) {
@@ -61,6 +70,7 @@ public class CountryLanguage {
     /**
      * This method is responsible for setting the country language
      * NOTE: There is a constraint: Language must be less than 30 characters
+     *
      * @param language
      */
     public void setLanguage(String language) {
@@ -80,6 +90,7 @@ public class CountryLanguage {
 
     /**
      * This method is responsible for setting whether or not a language is official in a country.
+     *
      * @param official Whether or not the language is official
      */
     public void setOfficial(boolean official) {
@@ -95,17 +106,11 @@ public class CountryLanguage {
 
     /**
      * This method is responsible for setting the language percentage of a country.
+     *
      * @param percentage The percentage of the language being spoken.
      */
     public void setPercentage(double percentage) {
         this.percentage = percentage;
-    }
-
-    /**
-     * @return The languages map which contains all the information for all the countries in the world.
-     */
-    public static Map<Integer, CountryLanguage> getLanguages() {
-        return languages;
     }
 
     @Override
