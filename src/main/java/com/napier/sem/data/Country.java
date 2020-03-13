@@ -2,6 +2,8 @@ package com.napier.sem.data;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -160,8 +162,8 @@ public class Country {
      * @param region The region to be set.
      */
     public void setRegion(String region) {
-        if (name.length() > 26) {
-            System.out.println("Couldn't set country region: " + region + ", region set to: ' '");
+        if (region.length() > 26) {
+            System.out.println("Couldn't set country region: " + region + ", region set to: ''");
             this.region = "";
         } else {
             this.region = region;
@@ -200,9 +202,7 @@ public class Country {
      * @param independence The year the country went independent.
      */
     public void setIndependence(int independence) {
-        Date date = new Date();
-
-        if(independence > date.getYear()) {
+        if(independence > LocalDate.now().getYear()) {
             System.out.println("Couldn't set the date of independence to a future year!");
         } else {
             this.independence = independence;
@@ -330,7 +330,7 @@ public class Country {
      * @param government The name of the government to be set.
      */
     public void setGovernment(String government) {
-        if (localName.length() > 45) {
+        if (government.length() > 45) {
             System.out.println("Couldn't set government name: " + government + ", name set to: ''");
             this.government = "";
         } else {

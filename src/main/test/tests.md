@@ -23,6 +23,6 @@ in the connected database - *Implemented*
 - 'set' functions correctly change the property
 - 'set' functions validate input correctly
 
-**Country/City**
+**Country/City/CountryLanguage**
 - toString() returns an accurate representation of the data
 in string format - *Implemented*
