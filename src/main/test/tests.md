@@ -18,6 +18,11 @@ in the connected database - *Implemented*
 - 'set' functions correctly change the property - *Implemented*
 - 'set' functions validate input correctly - *Implemented*
 
+**Country**
+- 'get' functions return  the correct property
+- 'set' functions correctly change the property
+- 'set' functions validate input correctly
+
 **Country/City**
 - toString() returns an accurate representation of the data
 in string format
