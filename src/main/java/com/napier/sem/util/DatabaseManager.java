@@ -42,7 +42,7 @@ public class DatabaseManager {
      * @param pass A specified password.
      * @param useSSL Whether or not you wish to use SSL to connect.
      */
-    public void connect(int attempts, int port, String database, String user, String pass, boolean useSSL) {
+    public boolean connect(int attempts, int port, String database, String user, String pass, boolean useSSL) {
         try {
             // Load Database driver
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -59,7 +59,7 @@ public class DatabaseManager {
                 // Connect to database
                 conn = DriverManager.getConnection("jdbc:mysql://db:" + port + "/" + database + "?useSSL=" + useSSL, user, pass);
                 System.out.println("Successfully connected");
-                break;
+                return true;
             } catch (SQLException sqle) {
                 System.out.println("Failed to connect to database attempt " + i);
                 System.out.println(sqle.getMessage());
@@ -67,6 +67,7 @@ public class DatabaseManager {
                 System.out.println("Thread interrupted? Should not happen.");
             }
         }
+        return false;
     }
 
     /**

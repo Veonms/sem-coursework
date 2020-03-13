@@ -7,7 +7,7 @@ Unit Tests
 - getCountryLanguage() returns correct value - *Implemented*
 
 **Database Manager**
-- Only 1 instance at any time
+- Only 1 instance at any time - *Implemented*
 - connect() will successfully connect to a valid database
 - connect() will output an error message
 when unable to connect to a valid database
