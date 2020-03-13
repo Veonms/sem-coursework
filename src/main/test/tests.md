@@ -15,7 +15,7 @@ when unable to connect to a valid database
 - populate() will create a list of all the records
 in the connected database
 
-**Capital/Country/Population/City**
+**Country/Population/City**
 - 'get' functions return  the correct property
 - 'set' functions correctly change the property
 
