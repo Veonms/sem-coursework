@@ -1,7 +1,7 @@
 Unit Tests
 ==========
 **Number Singleton**
-- Only 1 instance at any time
+- Only 1 instance at any time - *Implemented*
 - getCity() returns correct value
 - getCountry() returns correct value
 - getPopulation() returns correct value
