@@ -3,6 +3,8 @@ package com.napier.sem.data;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Stores the stuff related to countries
@@ -32,8 +34,6 @@ public class Country {
     private int capital;
     private String code2;
 
-<<<<<<< HEAD
-=======
     /**
      * @param code                    The country code
      * @param name                    The name of the country
@@ -72,8 +72,6 @@ public class Country {
     public static Map<Integer, Country> getCountries() {
         return cont;
     }
-
->>>>>>> develop
     /**
      * This method returns the 3 character country code.
      * @return The country code.
@@ -426,8 +424,6 @@ public class Country {
             this.code2 = "";
         }
     }
-<<<<<<< HEAD
-=======
 
     @Override
     public String toString() {
@@ -449,5 +445,4 @@ public class Country {
                 ", code2='" + code2 + '\'' +
                 ']';
     }
->>>>>>> develop
 }

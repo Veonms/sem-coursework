@@ -96,13 +96,8 @@ public class DatabaseManager {
         Statement stmt;
         ResultSet rs;
         try {
-<<<<<<< HEAD
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM city");
-=======
             stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT * FROM city ORDER BY Population DESC;");
->>>>>>> develop
 
             NumberSingleton ns = NumberSingleton.getInstance();
             while (rs.next()) {
@@ -116,8 +111,6 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-<<<<<<< HEAD
-=======
         }
 
         try {
@@ -167,7 +160,6 @@ public class DatabaseManager {
             }
         } catch (SQLException e) {
             e.printStackTrace();
->>>>>>> develop
         }
     }
 }
