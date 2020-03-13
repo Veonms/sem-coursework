@@ -8,10 +8,8 @@ Unit Tests
 
 **Database Manager**
 - Only 1 instance at any time - *Implemented*
-- connect() will successfully connect to a valid database
-- connect() will output an error message
-when unable to connect to a valid database
-- disconnect() will disconnect from a connected database
+- connect() will successfully connect to a valid database - *Implemented*
+- disconnect() will disconnect from a connected database - *Implemented*
 - populate() will create a list of all the records
 in the connected database
 

@@ -28,4 +28,16 @@ public class DatabaseManager_Tests {
         DatabaseManager dbm = DatabaseManager.getInstance();
         Assertions.assertTrue(dbm.connect(10, 3306, "world", "root", "example", false));
     }
+
+    @Test
+    void disconnects()
+    {
+        /*
+        Tests that disconnect() will disconnect the DatabaseManager from the currently connected database.
+        Will always fail if the mySQL server is not already running.
+         */
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        dbm.connect(10, 3306, "world", "root", "example", false);
+        Assertions.assertTrue(dbm.disconnect());
+    }
 }
