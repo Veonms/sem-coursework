@@ -17,12 +17,19 @@ in the connected database - *Implemented*
 - 'get' functions return  the correct property - *Implemented*
 - 'set' functions correctly change the property - *Implemented*
 - 'set' functions validate input correctly - *Implemented*
+- toString() returns an accurate representation of the data
+in string format - *Implemented*
 
 **Country**
+- 'get' functions return  the correct property - *Implemented*
+- 'set' functions correctly change the property - *Implemented*
+- 'set' functions validate input correctly - *Implemented*
+- toString() returns an accurate representation of the data
+in string format - *Implemented*
+
+**CountryLanguage**
 - 'get' functions return  the correct property
 - 'set' functions correctly change the property
 - 'set' functions validate input correctly
-
-**Country/City/CountryLanguage**
 - toString() returns an accurate representation of the data
 in string format - *Implemented*
