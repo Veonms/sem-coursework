@@ -6,6 +6,39 @@ import com.napier.sem.*;
 class NumberSingleton_Tests
 {
     @Test
+    void getCityReturnsProper()
+    {
+        /*
+        Tests that getCity() returns the correct value.
+        Tested by creating a new NumberSingleton and checking that the correct default value is returned by getCity()
+         */
+        NumberSingleton ns = NumberSingleton.getInstance();
+        Assertions.assertEquals(1,ns.getCity());
+    }
+
+    @Test
+    void getCountryReturnsProper()
+    {
+        /*
+        Tests that getCountry() returns the correct value.
+        Tested by creating a new NumberSingleton and checking that the correct default value is returned by getCountry()
+         */
+        NumberSingleton ns = NumberSingleton.getInstance();
+        Assertions.assertEquals(1,ns.getCountry());
+    }
+
+    @Test
+    void getPopulationReturnsProper()
+    {
+        /*
+        Tests that getPopulation() returns the correct value.
+        Tested by creating a new NumberSingleton and checking that the correct default value is returned by getPopulation()
+         */
+        NumberSingleton ns = NumberSingleton.getInstance();
+        Assertions.assertEquals(1,ns.getCountryLanguage());
+    }
+
+    @Test
     void onlyOneInstance()
     {
         /*
