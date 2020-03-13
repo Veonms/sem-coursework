@@ -11,7 +11,7 @@ Unit Tests
 - connect() will successfully connect to a valid database - *Implemented*
 - disconnect() will disconnect from a connected database - *Implemented*
 - populate() will create a list of all the records
-in the connected database
+in the connected database - *Implemented*
 
 **Country/Population/City**
 - 'get' functions return  the correct property

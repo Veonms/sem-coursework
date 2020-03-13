@@ -1,7 +1,11 @@
+import com.napier.sem.data.City;
+import com.napier.sem.data.Country;
+import com.napier.sem.data.CountryLanguage;
 import com.napier.sem.util.NumberSingleton;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.util.DatabaseManager;
+import sun.jvm.hotspot.utilities.Assert;
 
 import javax.xml.crypto.Data;
 
@@ -39,5 +43,25 @@ public class DatabaseManager_Tests {
         DatabaseManager dbm = DatabaseManager.getInstance();
         dbm.connect(10, 3306, "world", "root", "example", false);
         Assertions.assertTrue(dbm.disconnect());
+    }
+
+    @Test
+    void populates()
+    {
+        /*
+        Tests that the populate() method actually gathers data from the connected database.
+        Tested by: connecting to the database, calling populate(),
+        and then checking that the length of the stored data is greater than 0.
+         */
+        DatabaseManager dbm = DatabaseManager.getInstance();
+        dbm.connect(10, 3306, "world", "root", "example", false);
+        dbm.populate();
+        dbm.disconnect();
+
+        boolean populated = City.getCities().size() > 0 &&
+                Country.getCountries().size() > 0 &&
+                CountryLanguage.getLanguages().size() > 0;
+
+        Assertions.assertTrue(populated);
     }
 }
