@@ -1,4 +1,4 @@
-package UnitTests;
+package java.UnitTests;
 
 import com.napier.sem.data.City;
 import com.napier.sem.util.NumberSingleton;
