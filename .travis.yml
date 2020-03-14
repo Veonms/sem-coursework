@@ -22,7 +22,7 @@ jobs:
     - stage: unit tests
       install: skip
       jdk: oraclejdk11
-      script: mvn test -Dtest=test.java.*
+      script: mvn test -Dtest=test.java.UnitTests.*
     - stage: integration tests
       jdk: oraclejdk11
       script: echo "Integration Tests"
@@ -31,8 +31,8 @@ jobs:
       jdk: oraclejdk11
       script: echo "Deploy"
 
-script:
-  - mvn test -Dtest=test.java.*
-
-after_success:
-- docker-compose up --abort-on-container-exit
+stages:
+  - unit tests
+  - integration tests
+  - name: deploy
+    if: branch = master
