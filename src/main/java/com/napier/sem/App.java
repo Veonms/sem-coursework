@@ -25,5 +25,6 @@ public class App {
         query.countriesInContinent("Asia");
         query.countriesInRegion("Southern Europe");
         query.topPopulatedCountries(5);
+        query.topPopulatedCountriesInContinent(7, "Europe");
     }
 }

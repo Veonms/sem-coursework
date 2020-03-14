@@ -22,6 +22,8 @@ public class Queries {
         Country.getCountries().forEach((k, v) -> System.out.println(v.getCode() + "\t-\t"
                 + v.getName() + "\t-\t" + v.getContinent() + "\t-\t" + v.getRegion() + "\t-\t"
                 + v.getPopulation() + "\t-\t" + v.getCapital()));
+
+        System.out.println();
     }
 
     public void countriesInContinent(String continent) {
@@ -35,6 +37,8 @@ public class Queries {
                         + v.getPopulation() + "\t-\t" + v.getCapital());
             }
         });
+
+        System.out.println();
     }
 
     public void countriesInRegion(String region) {
@@ -48,6 +52,8 @@ public class Queries {
                         + v.getPopulation() + "\t-\t" + v.getCapital());
             }
         });
+
+        System.out.println();
     }
 
     public void topPopulatedCountries(int n) {
@@ -63,6 +69,27 @@ public class Queries {
                 i.getAndIncrement();
             }
         });
+
+        System.out.println();
+    }
+
+    public void topPopulatedCountriesInContinent(int n, String continent) {
+        System.out.println("Top " + n + " populated countries in continent " + continent + ":\n");
+        System.out.println("Code\t-\tName\t-\tContinent\t-\tRegion\t-\tPopulation\t-\tCapital");
+        AtomicInteger i = new AtomicInteger();
+
+        Country.getCountries().forEach((k, v) -> {
+            if (i.get() < n) {
+                if (v.getContinent().equals(continent)) {
+                    System.out.println(v.getCode() + "\t-\t"
+                            + v.getName() + "\t-\t" + v.getContinent() + "\t-\t" + v.getRegion() + "\t-\t"
+                            + v.getPopulation() + "\t-\t" + v.getCapital());
+                    i.getAndIncrement();
+                }
+            }
+        });
+
+        System.out.println();
     }
 
 
