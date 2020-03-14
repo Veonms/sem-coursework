@@ -92,5 +92,22 @@ public class Queries {
         System.out.println();
     }
 
+    public void topPopulatedCountriesInRegion(int n, String region) {
+        System.out.println("Top " + n + " populated countries in region " + region + ":\n");
+        System.out.println("Code\t-\tName\t-\tContinent\t-\tRegion\t-\tPopulation\t-\tCapital");
+        AtomicInteger i = new AtomicInteger();
 
+        Country.getCountries().forEach((k, v) -> {
+            if (i.get() < n) {
+                if (v.getRegion().equals(region)) {
+                    System.out.println(v.getCode() + "\t-\t"
+                            + v.getName() + "\t-\t" + v.getContinent() + "\t-\t" + v.getRegion() + "\t-\t"
+                            + v.getPopulation() + "\t-\t" + v.getCapital());
+                    i.getAndIncrement();
+                }
+            }
+        });
+
+        System.out.println();
+    }
 }
