@@ -1,14 +1,10 @@
-package java.IntegrationTests;
+package Integration_Tests;
 
 import com.napier.sem.data.City;
 import com.napier.sem.data.Country;
 import com.napier.sem.data.CountryLanguage;
-import com.napier.sem.util.NumberSingleton;
 import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.util.DatabaseManager;
-
-import javax.xml.crypto.Data;
 
 public class DatabaseManagerTest {
     @Test
