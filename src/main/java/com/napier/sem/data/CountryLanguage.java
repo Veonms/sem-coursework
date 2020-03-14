@@ -20,10 +20,10 @@ public class CountryLanguage {
     /**
      * This is the default constructor for the class.
      *
-     * @param countryCode
-     * @param language
-     * @param official
-     * @param percentage
+     * @param countryCode The country code used by the languages country
+     * @param language    The languages name
+     * @param official    Whether or not the language is official
+     * @param percentage  The percentage of people that speak the language in the country
      */
     public CountryLanguage(String countryCode, String language, boolean official, double percentage) {
         this.countryCode = countryCode;
@@ -71,7 +71,7 @@ public class CountryLanguage {
      * This method is responsible for setting the country language
      * NOTE: There is a constraint: Language must be less than 30 characters
      *
-     * @param language
+     * @param language The languages name
      */
     public void setLanguage(String language) {
         if (language.length() <= 30) {
@@ -110,7 +110,11 @@ public class CountryLanguage {
      * @param percentage The percentage of the language being spoken.
      */
     public void setPercentage(double percentage) {
-        this.percentage = percentage;
+        if (percentage > 100) {
+            this.percentage = 0;
+        } else {
+            this.percentage = percentage;
+        }
     }
 
     @Override

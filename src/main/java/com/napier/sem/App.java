@@ -1,9 +1,7 @@
 package com.napier.sem;
 
 import com.napier.sem.util.DatabaseManager;
-
-import static com.napier.sem.util.Queries.countriesInContinent;
-import static com.napier.sem.util.Queries.worldCountries;
+import com.napier.sem.util.Queries;
 
 /**
  * <h1>SEM Coursework</h1>
@@ -17,11 +15,17 @@ public class App {
 
     public static void main(String[] args) {
         DatabaseManager dbm = DatabaseManager.getInstance();
+        Queries query = new Queries();
+
         dbm.connect(10, 3306, "world", "root", "example", false);
         dbm.populate();
         dbm.disconnect();
 
-        worldCountries();
-        countriesInContinent("Asia");
+        query.worldCountries();
+        query.countriesInContinent("Asia");
+        query.countriesInRegion("Southern Europe");
+        query.topPopulatedCountries(5);
+        query.topPopulatedCountriesInContinent(7, "Europe");
+        query.topPopulatedCountriesInRegion(4, "Eastern Europe");
     }
 }

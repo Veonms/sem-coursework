@@ -93,7 +93,7 @@ public class City_Tests {
 
     2 types of test for each field:
         1: Valid input
-        2: Valid input
+        2: Invalid input
     The value stored after the method is called will then be tested against the correct value
      */
 
