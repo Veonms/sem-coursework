@@ -1,3 +1,5 @@
+package IntegrationTests;
+
 import com.napier.sem.data.City;
 import com.napier.sem.data.Country;
 import com.napier.sem.data.CountryLanguage;
