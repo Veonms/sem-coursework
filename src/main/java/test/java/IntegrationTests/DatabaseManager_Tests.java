@@ -1,4 +1,4 @@
-package java.IntegrationTests;
+package test.java.IntegrationTests;
 
 import com.napier.sem.data.City;
 import com.napier.sem.data.Country;

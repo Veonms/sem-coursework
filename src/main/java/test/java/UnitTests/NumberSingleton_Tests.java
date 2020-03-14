@@ -1,4 +1,4 @@
-package UnitTests;
+package test.java.UnitTests;
 
 import com.napier.sem.util.NumberSingleton;
 import org.junit.jupiter.api.*;
