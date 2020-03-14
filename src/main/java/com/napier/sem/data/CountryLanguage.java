@@ -21,9 +21,9 @@ public class CountryLanguage {
      * This is the default constructor for the class.
      *
      * @param countryCode The country code used by the languages country
-     * @param language The languages name
-     * @param official Whether or not the language is official
-     * @param percentage The percentage of people that speak the language in the country
+     * @param language    The languages name
+     * @param official    Whether or not the language is official
+     * @param percentage  The percentage of people that speak the language in the country
      */
     public CountryLanguage(String countryCode, String language, boolean official, double percentage) {
         this.countryCode = countryCode;
@@ -109,10 +109,8 @@ public class CountryLanguage {
      *
      * @param percentage The percentage of the language being spoken.
      */
-    public void setPercentage(double percentage)
-    {
-        if(percentage > 100)
-        {
+    public void setPercentage(double percentage) {
+        if (percentage > 100) {
             this.percentage = 0;
         } else {
             this.percentage = percentage;

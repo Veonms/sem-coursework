@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @version 0.1.0.3
  * @since 2020/03/01
  */
+
 public class Queries {
 
     public void worldCountries() {
@@ -27,7 +28,7 @@ public class Queries {
     }
 
     public void countriesInContinent(String continent) {
-        System.out.println("All the countries in continent " + continent + ":\n");
+        System.out.println("All the countries in " + continent + ":\n");
         System.out.println("Code\t-\tName\t-\tContinent\t-\tRegion\t-\tPopulation\t-\tCapital");
 
         Country.getCountries().forEach((k, v) -> {
@@ -42,7 +43,7 @@ public class Queries {
     }
 
     public void countriesInRegion(String region) {
-        System.out.println("All the countries in region " + region + ":\n");
+        System.out.println("All the countries in " + region + ":\n");
         System.out.println("Code\t-\tName\t-\tContinent\t-\tRegion\t-\tPopulation\t-\tCapital");
 
         Country.getCountries().forEach((k, v) -> {
@@ -74,7 +75,7 @@ public class Queries {
     }
 
     public void topPopulatedCountriesInContinent(int n, String continent) {
-        System.out.println("Top " + n + " populated countries in continent " + continent + ":\n");
+        System.out.println("Top " + n + " populated countries in " + continent + ":\n");
         System.out.println("Code\t-\tName\t-\tContinent\t-\tRegion\t-\tPopulation\t-\tCapital");
         AtomicInteger i = new AtomicInteger();
 
@@ -93,7 +94,7 @@ public class Queries {
     }
 
     public void topPopulatedCountriesInRegion(int n, String region) {
-        System.out.println("Top " + n + " populated countries in region " + region + ":\n");
+        System.out.println("Top " + n + " populated countries in " + region + ":\n");
         System.out.println("Code\t-\tName\t-\tContinent\t-\tRegion\t-\tPopulation\t-\tCapital");
         AtomicInteger i = new AtomicInteger();
 
@@ -109,5 +110,9 @@ public class Queries {
         });
 
         System.out.println();
+    }
+
+    public void worldCities() {
+        
     }
 }
