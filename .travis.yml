@@ -18,7 +18,7 @@ before_script:
   - mvn clean
 
 script:
-  - mvn test -Dtest=
+  - mvn test -Dtest=test.java.*
 
 after_success:
 - docker-compose up --abort-on-container-exit
