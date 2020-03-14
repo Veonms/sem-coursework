@@ -22,10 +22,7 @@ jobs:
     - stage: unit tests
       install: skip
       jdk: oraclejdk11
-      script: mvn -Dtest=test.java.UnitTests.City_Tests,
-      test.java.UnitTests.Country_Tests,
-      test.java.UnitTests.CountryLanguage_Tests,
-      test.java.UnitTests.NumberSingleton_Tests test
+      script: mvn -Dtest=test.java.UnitTests.City_Tests,test.java.UnitTests.Country_Tests,test.java.UnitTests.CountryLanguage_Tests,test.java.UnitTests.NumberSingleton_Tests test
     - stage: integration tests
       jdk: oraclejdk11
       script: mvn test -Dtest=test.java.IntegrationTests.DatabaseManager_Tests
