@@ -6,7 +6,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.data.Country;
 
-public class Country_Tests {
+public class CountryTest {
     String name = "Test City";
     String code = "TCi";
     String continent = "Africa";

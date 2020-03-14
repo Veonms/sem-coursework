@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.util.NumberSingleton;
 
-class NumberSingleton_Tests
+class NumberSingletonTest
 {
     @Test
     void getCityReturnsProper()

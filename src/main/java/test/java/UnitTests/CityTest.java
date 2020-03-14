@@ -5,7 +5,7 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 import com.napier.sem.data.City;
 
-public class City_Tests {
+public class CityTest {
     @Test
     void toStringProper()
     {

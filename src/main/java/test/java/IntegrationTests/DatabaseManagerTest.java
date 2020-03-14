@@ -10,7 +10,7 @@ import com.napier.sem.util.DatabaseManager;
 
 import javax.xml.crypto.Data;
 
-public class DatabaseManager_Tests {
+public class DatabaseManagerTest {
     @Test
     void onlyOneInstance()
     {
