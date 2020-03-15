@@ -1,4 +1,4 @@
-sudo: false
+sudo: true
 
 language: java
 
@@ -19,24 +19,22 @@ before_script:
 
 jobs:
   include:
-    - stage: Unit Tests
+    - stage: unit tests
       install: skip
       jdk: oraclejdk11
       script: mvn test -Dtest=test.unit.CityTest,test.unit.CountryLanguageTest,test.unit.CountryTest,test.unit.NumberSingletonTest
-    - stage: Integration Tests
+    - stage: integration tests
       jdk: oraclejdk11
       script: mvn test -Dtest=test.integration.DatabaseManagerTest
-    - stage: Deploy
+    - stage: deploy
       install: skip
       jdk: oraclejdk11
-      script:
-        - mvn package -DskipTests=true -Dmaven.javadoc.skip=true
-        - docker-compose up --abort-on-container-exit
+      script: echo "deployment"
 
 stages:
-  - Unit Tests
-  - Integration Tests
-  - name: Deploy
+  - unit tests
+  - integration tests
+  - name: deploy
     if: branch = master
 
 after_success:
