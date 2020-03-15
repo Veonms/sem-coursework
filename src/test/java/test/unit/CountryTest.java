@@ -1,9 +1,11 @@
-package Unit_Tests;
+package test.unit;
 
-import org.junit.jupiter.api.*;
 import com.napier.sem.data.Country;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CountryTest {
+
     String name = "Test City";
     String code = "TCi";
     String continent = "Africa";
@@ -21,8 +23,7 @@ public class CountryTest {
     String code2 = "TC";
 
     @Test
-    void toStringProper()
-    {
+    void toStringProper() {
         /*
         Tests that toString returns a string containing the correct data, properly formatted.
 
@@ -76,8 +77,7 @@ public class CountryTest {
     */
 
     @Test
-    void getCode()
-    {
+    void getCode() {
         String expected = code;
 
         Country testCountry = new Country(expected,
@@ -100,8 +100,7 @@ public class CountryTest {
     }
 
     @Test
-    void getName()
-    {
+    void getName() {
         String expected = name;
 
         Country testCountry = new Country(code,
@@ -124,8 +123,7 @@ public class CountryTest {
     }
 
     @Test
-    void getContinent()
-    {
+    void getContinent() {
         String expected = continent;
 
         Country testCountry = new Country(code,
@@ -148,8 +146,7 @@ public class CountryTest {
     }
 
     @Test
-    void getRegion()
-    {
+    void getRegion() {
         String expected = region;
 
         Country testCountry = new Country(code,
@@ -172,8 +169,7 @@ public class CountryTest {
     }
 
     @Test
-    void getSurfaceArea()
-    {
+    void getSurfaceArea() {
         double expected = surfaceArea;
 
         Country testCountry = new Country(code,
@@ -196,8 +192,7 @@ public class CountryTest {
     }
 
     @Test
-    void getIndependence()
-    {
+    void getIndependence() {
         int expected = independence;
 
         Country testCountry = new Country(code,
@@ -220,8 +215,7 @@ public class CountryTest {
     }
 
     @Test
-    void getPopulation()
-    {
+    void getPopulation() {
         int expected = population;
 
         Country testCountry = new Country(code,
@@ -244,8 +238,7 @@ public class CountryTest {
     }
 
     @Test
-    void getLifeExpectancy()
-    {
+    void getLifeExpectancy() {
         double expected = lifeExpectancy;
 
         Country testCountry = new Country(code,
@@ -268,8 +261,7 @@ public class CountryTest {
     }
 
     @Test
-    void getGrossNationalProduct()
-    {
+    void getGrossNationalProduct() {
         double expected = grossNationalProduct;
 
         Country testCountry = new Country(code,
@@ -292,8 +284,7 @@ public class CountryTest {
     }
 
     @Test
-    void getOldGrossNationalProduct()
-    {
+    void getOldGrossNationalProduct() {
         double expected = oldGrossNationalProduct;
 
         Country testCountry = new Country(code,
@@ -316,8 +307,7 @@ public class CountryTest {
     }
 
     @Test
-    void getLocalName()
-    {
+    void getLocalName() {
         String expected = localName;
 
         Country testCountry = new Country(code,
@@ -340,8 +330,7 @@ public class CountryTest {
     }
 
     @Test
-    void getGovernment()
-    {
+    void getGovernment() {
         String expected = government;
 
         Country testCountry = new Country(code,
@@ -364,8 +353,7 @@ public class CountryTest {
     }
 
     @Test
-    void getStateHead()
-    {
+    void getStateHead() {
         String expected = stateHead;
 
         Country testCountry = new Country(code,
@@ -388,8 +376,7 @@ public class CountryTest {
     }
 
     @Test
-    void getCapital()
-    {
+    void getCapital() {
         int expected = capital;
 
         Country testCountry = new Country(code,
@@ -412,8 +399,7 @@ public class CountryTest {
     }
 
     @Test
-    void getCode2()
-    {
+    void getCode2() {
         String expected = code2;
 
         Country testCountry = new Country(code,
@@ -436,8 +422,7 @@ public class CountryTest {
     }
 
     @Test
-    void getCountries()
-    {
+    void getCountries() {
         int key = 0;
         Country country = new Country(code,
                 name,
@@ -471,8 +456,7 @@ public class CountryTest {
     */
 
     @Test
-    void setCodeValid()
-    {
+    void setCodeValid() {
         String expected = code;
 
         Country testCountry = new Country("",
@@ -496,8 +480,7 @@ public class CountryTest {
     }
 
     @Test
-    void setCodeInvalid()
-    {
+    void setCodeInvalid() {
         String expected = "";
 
         Country testCountry = new Country(code,
@@ -522,8 +505,7 @@ public class CountryTest {
     }
 
     @Test
-    void setNameValid()
-    {
+    void setNameValid() {
         String expected = name;
 
         Country testCountry = new Country(code,
@@ -547,8 +529,7 @@ public class CountryTest {
     }
 
     @Test
-    void setNameInvalid()
-    {
+    void setNameInvalid() {
         String expected = "";
 
         Country testCountry = new Country(code,
@@ -573,8 +554,7 @@ public class CountryTest {
     }
 
     @Test
-    void setContinentValid()
-    {
+    void setContinentValid() {
         String expected = continent;
 
         Country testCountry = new Country(code,
@@ -598,8 +578,7 @@ public class CountryTest {
     }
 
     @Test
-    void setContinentInvalid()
-    {
+    void setContinentInvalid() {
         String expected = "Asia";
 
         Country testCountry = new Country(code,
@@ -624,8 +603,7 @@ public class CountryTest {
     }
 
     @Test
-    void setRegionValid()
-    {
+    void setRegionValid() {
         String expected = region;
 
         Country testCountry = new Country(code,
@@ -649,8 +627,7 @@ public class CountryTest {
     }
 
     @Test
-    void setRegionInvalid()
-    {
+    void setRegionInvalid() {
         String expected = "";
 
         Country testCountry = new Country(code,
@@ -700,8 +677,7 @@ public class CountryTest {
     }
 
     @Test
-    void setIndependence()
-    {
+    void setIndependence() {
         int expected = independence;
 
         Country testCountry = new Country(code,
@@ -725,8 +701,7 @@ public class CountryTest {
     }
 
     @Test
-    void setIndependenceInvalid()
-    {
+    void setIndependenceInvalid() {
         int expected = 0;
 
         Country testCountry = new Country(code,
@@ -854,8 +829,7 @@ public class CountryTest {
     }
 
     @Test
-    void setLocalNameValid()
-    {
+    void setLocalNameValid() {
         String expected = localName;
 
         Country testCountry = new Country(code,
@@ -879,8 +853,7 @@ public class CountryTest {
     }
 
     @Test
-    void setLocalNameInvalid()
-    {
+    void setLocalNameInvalid() {
         String expected = "";
 
         Country testCountry = new Country(code,
@@ -905,8 +878,7 @@ public class CountryTest {
     }
 
     @Test
-    void setGovernmentValid()
-    {
+    void setGovernmentValid() {
         String expected = government;
 
         Country testCountry = new Country(code,
@@ -930,8 +902,7 @@ public class CountryTest {
     }
 
     @Test
-    void setGovernmentInvalid()
-    {
+    void setGovernmentInvalid() {
         String expected = "";
 
         Country testCountry = new Country(code,
@@ -956,8 +927,7 @@ public class CountryTest {
     }
 
     @Test
-    void setStateHeadValid()
-    {
+    void setStateHeadValid() {
         String expected = stateHead;
 
         Country testCountry = new Country(code,
@@ -981,8 +951,7 @@ public class CountryTest {
     }
 
     @Test
-    void setStateHeadInvalid()
-    {
+    void setStateHeadInvalid() {
         String expected = "";
 
         Country testCountry = new Country(code,
@@ -1032,8 +1001,7 @@ public class CountryTest {
     }
 
     @Test
-    void setCode2Valid()
-    {
+    void setCode2Valid() {
         String expected = code2;
 
         Country testCountry = new Country(code,
@@ -1057,8 +1025,7 @@ public class CountryTest {
     }
 
     @Test
-    void setCode2Invalid()
-    {
+    void setCode2Invalid() {
         String expected = "";
 
         Country testCountry = new Country(code,

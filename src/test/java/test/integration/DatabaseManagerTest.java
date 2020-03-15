@@ -1,15 +1,16 @@
-package Integration_Tests;
+package test.integration;
 
 import com.napier.sem.data.City;
 import com.napier.sem.data.Country;
 import com.napier.sem.data.CountryLanguage;
-import org.junit.jupiter.api.*;
 import com.napier.sem.util.DatabaseManager;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class DatabaseManagerTest {
+
     @Test
-    void onlyOneInstance()
-    {
+    void onlyOneInstance() {
         /*
         Tests that the DatabaseManager class maintains only one instance.
         Tested by creating two new DatabaseManagers and comparing them.
@@ -20,8 +21,7 @@ public class DatabaseManagerTest {
     }
 
     @Test
-    void connects()
-    {
+    void connects() {
         /*
         Tests that connect() will connect when a valid mySQL server is running.
         Will always fail if the mySQL server is not already running.
@@ -31,8 +31,7 @@ public class DatabaseManagerTest {
     }
 
     @Test
-    void disconnects()
-    {
+    void disconnects() {
         /*
         Tests that disconnect() will disconnect the DatabaseManager from the currently connected database.
         Will always fail if the mySQL server is not already running.
@@ -43,8 +42,7 @@ public class DatabaseManagerTest {
     }
 
     @Test
-    void populates()
-    {
+    void populates() {
         /*
         Tests that the populate() method actually gathers data from the connected database.
         Tested by: connecting to the database, calling populate(),

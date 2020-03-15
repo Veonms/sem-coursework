@@ -4,7 +4,7 @@ language: java
 
 addons:
   hosts:
-    - world
+    - db
 
 services:
 - docker
@@ -19,20 +19,25 @@ before_script:
 
 jobs:
   include:
-    - stage: unit tests
+    - stage: Unit Tests
       install: skip
       jdk: oraclejdk11
-      script: mvn test -Dtest=Unit_Tests.CityTest,Unit_Tests.CountryLanguageTest,Unit_Tests.CountryTest,Unit_Tests.NumberSingletonTest
-    - stage: integration tests
+      script: mvn test -Dtest=test.unit.CityTest,test.unit.CountryLanguageTest,test.unit.CountryTest,test.unit.NumberSingletonTest
+    - stage: Integration Tests
       jdk: oraclejdk11
-      script: mvn test -Dtest=Integration_Tests.DatabaseManagerTest
-    - stage: deploy
+      script: mvn test -Dtest=test.integration.DatabaseManagerTest
+    - stage: Deploy
       install: skip
       jdk: oraclejdk11
-      script: echo "Deploy"
+      script:
+        - mvn package -DskipTests=true -Dmaven.javadoc.skip=true
+        - docker-compose up --abort-on-container-exit
 
 stages:
-  - unit tests
-  - integration tests
-  - name: deploy
+  - Unit Tests
+  - Integration Tests
+  - name: Deploy
     if: branch = master
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

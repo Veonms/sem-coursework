@@ -1,12 +1,13 @@
-package Unit_Tests;
+package test.unit;
 
-import org.junit.jupiter.api.*;
 import com.napier.sem.data.City;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CityTest {
+
     @Test
-    void toStringProper()
-    {
+    void toStringProper() {
         /*
         Tests that toString returns a string containing the correct data, properly formatted.
 
@@ -43,40 +44,35 @@ public class CityTest {
      */
 
     @Test
-    void getName()
-    {
+    void getName() {
         String name = "Test City";
         City city = new City(name, "", "", 0);
         Assertions.assertEquals(name, city.getName());
     }
 
     @Test
-    void getCountryCode()
-    {
+    void getCountryCode() {
         String code = "TCi";
         City city = new City("", code, "", 0);
         Assertions.assertEquals(code, city.getCountryCode());
     }
 
     @Test
-    void getDistrict()
-    {
+    void getDistrict() {
         String district = "Test District";
         City city = new City("", "", district, 0);
         Assertions.assertEquals(district, city.getDistrict());
     }
 
     @Test
-    void getPopulation()
-    {
+    void getPopulation() {
         int population = 1234;
         City city = new City("", "", "", population);
         Assertions.assertEquals(population, city.getPopulation());
     }
 
     @Test
-    void getCities()
-    {
+    void getCities() {
         int key = 0;
         City city = new City("Test City",
                 "TC",
@@ -98,71 +94,65 @@ public class CityTest {
      */
 
     @Test
-    void setNameValid()
-    {
+    void setNameValid() {
         String expected = "Test City";
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setName(expected);
         Assertions.assertEquals(expected, city.getName());
     }
 
     @Test
-    void setNameInvalid()
-    {
+    void setNameInvalid() {
         //Name is invalid when length of name is greater than 35
         String invalid = "AAAAABBBBBCCCCCDDDDDEEEEEFFFFFGGGGGHHHHH";
         //When an invalid name is passed, no value should be stored
         String expected = "";
 
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setName(invalid);
 
         Assertions.assertEquals(expected, city.getName());
     }
 
     @Test
-    void setCodeValid()
-    {
+    void setCodeValid() {
         String expected = "TCi";
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setCountryCode(expected);
 
         Assertions.assertEquals(expected, city.getCountryCode());
     }
 
     @Test
-    void setCodeInvalid()
-    {
+    void setCodeInvalid() {
         //Code is invalid when length of code is not 3
         String invalid = "T";
         //Code an invalid code is passed, no value should be stored
         String expected = "";
 
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setCountryCode(invalid);
 
         Assertions.assertEquals(expected, city.getCountryCode());
     }
 
     @Test
-    void setDistrictValid()
-    {
+    void setDistrictValid() {
         String expected = "Test District";
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setDistrict(expected);
 
         Assertions.assertEquals(expected, city.getDistrict());
     }
 
     @Test
-    void setDistrictInvalid()
-    {
+    void setDistrictInvalid() {
         //District is invalid when length of district is greater than 20
         String invalid = "AAAAABBBBBCCCCCDDDDDEEEEE";
         //When an invalid district is passed, no value should be stored
         String expected = "";
 
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setDistrict(invalid);
 
         Assertions.assertEquals(expected, city.getDistrict());
@@ -172,7 +162,7 @@ public class CityTest {
     void setPopulation() //No invalid test as all values stored by int will be accepted
     {
         int expected = 1234;
-        City city = new City("","","",0);
+        City city = new City("", "", "", 0);
         city.setPopulation(expected);
 
         Assertions.assertEquals(expected, city.getPopulation());

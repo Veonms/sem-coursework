@@ -1,17 +1,18 @@
-package Unit_Tests;
+package test.unit;
 
-import org.junit.jupiter.api.*;
 import com.napier.sem.data.CountryLanguage;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CountryLanguageTest {
+
     String countryCode = "TCO";
     String language = "Test Language";
     boolean official = false;
     double percentage = 50;
 
     @Test
-    void toStringProper()
-    {
+    void toStringProper() {
         /*
         Tests that toString returns a string containing the correct data, properly formatted.
 
@@ -43,45 +44,40 @@ public class CountryLanguageTest {
      */
 
     @Test
-    void getCountryCode()
-    {
+    void getCountryCode() {
         String expected = countryCode;
         CountryLanguage cl = new CountryLanguage(expected, "", false, 0);
         Assertions.assertEquals(expected, cl.getCountryCode());
     }
 
     @Test
-    void getLanguage()
-    {
+    void getLanguage() {
         String expected = language;
         CountryLanguage cl = new CountryLanguage("", expected, false, 0);
         Assertions.assertEquals(expected, cl.getLanguage());
     }
 
     @Test
-    void isOfficial()
-    {
+    void isOfficial() {
         boolean expected = true;
         CountryLanguage cl = new CountryLanguage("", "", expected, 0);
         Assertions.assertEquals(expected, cl.isOfficial());
     }
 
     @Test
-    void getPercentage()
-    {
+    void getPercentage() {
         double expected = percentage;
         CountryLanguage cl = new CountryLanguage("", "", false, expected);
         Assertions.assertEquals(expected, cl.getPercentage());
     }
 
     @Test
-    void getLanguages()
-    {
+    void getLanguages() {
         int key = 0;
         CountryLanguage cl = new CountryLanguage(countryCode,
-            language,
-            official,
-            percentage);
+                language,
+                official,
+                percentage);
 
         CountryLanguage.getLanguages().put(key, cl);
         Assertions.assertEquals(cl, CountryLanguage.getLanguages().get(key));
@@ -99,8 +95,7 @@ public class CountryLanguageTest {
      */
 
     @Test
-    void setCountryCodeValid()
-    {
+    void setCountryCodeValid() {
         String expected = countryCode;
 
         CountryLanguage cl = new CountryLanguage("",
@@ -113,8 +108,7 @@ public class CountryLanguageTest {
     }
 
     @Test
-    void setCountryCodeInvalid()
-    {
+    void setCountryCodeInvalid() {
         //Country code only valid when length is exactly 3
         String invalid = "T";
         //When an invalid code is passed, no value should be stored
@@ -131,8 +125,7 @@ public class CountryLanguageTest {
     }
 
     @Test
-    void setLanguageValid()
-    {
+    void setLanguageValid() {
         String expected = countryCode;
 
         CountryLanguage cl = new CountryLanguage(countryCode,
@@ -145,8 +138,7 @@ public class CountryLanguageTest {
     }
 
     @Test
-    void setLanguageInvalid()
-    {
+    void setLanguageInvalid() {
         //Language only valid when length is less than or equal to 30
         String invalid = "AAAAABBBBBCCCCCDDDDDEEEEEFFFFFGGGGG";
         //When an invalid code is passed, no value should be stored
@@ -177,8 +169,7 @@ public class CountryLanguageTest {
     }
 
     @Test
-    void setPercentageValid()
-    {
+    void setPercentageValid() {
         double expected = percentage;
 
         CountryLanguage cl = new CountryLanguage(countryCode,
@@ -191,8 +182,7 @@ public class CountryLanguageTest {
     }
 
     @Test
-    void setPercentageInvalid()
-    {
+    void setPercentageInvalid() {
         //Percentages over 100 are invalid
         double invalid = 110;
         //When an invalid percentage is passed, 0 should be stored
