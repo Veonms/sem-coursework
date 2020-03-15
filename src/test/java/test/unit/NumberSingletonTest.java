@@ -1,46 +1,44 @@
-package Unit_Tests;
+package test.unit;
 
 import com.napier.sem.util.NumberSingleton;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-class NumberSingletonTest
-{
+@SuppressWarnings("unused")
+class NumberSingletonTest {
+
     @Test
-    void getCityReturnsProper()
-    {
+    void getCityReturnsProper() {
         /*
         Tests that getCity() returns the correct value.
         Tested by creating a new NumberSingleton and checking that the correct default value is returned by getCity()
          */
         NumberSingleton ns = NumberSingleton.getInstance();
-        Assertions.assertEquals(1,ns.getCity());
+        Assertions.assertEquals(1, ns.getCity());
     }
 
     @Test
-    void getCountryReturnsProper()
-    {
+    void getCountryReturnsProper() {
         /*
         Tests that getCountry() returns the correct value.
         Tested by creating a new NumberSingleton and checking that the correct default value is returned by getCountry()
          */
         NumberSingleton ns = NumberSingleton.getInstance();
-        Assertions.assertEquals(1,ns.getCountry());
+        Assertions.assertEquals(1, ns.getCountry());
     }
 
     @Test
-    void getPopulationReturnsProper()
-    {
+    void getPopulationReturnsProper() {
         /*
         Tests that getPopulation() returns the correct value.
         Tested by creating a new NumberSingleton and checking that the correct default value is returned by getPopulation()
          */
         NumberSingleton ns = NumberSingleton.getInstance();
-        Assertions.assertEquals(1,ns.getCountryLanguage());
+        Assertions.assertEquals(1, ns.getCountryLanguage());
     }
 
     @Test
-    void onlyOneInstance()
-    {
+    void onlyOneInstance() {
         /*
         Tests that the NumberSingleton class maintains only one instance.
         Tested by creating two new NumberSingletons and comparing them.
