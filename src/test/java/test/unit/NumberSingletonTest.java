@@ -4,6 +4,7 @@ import com.napier.sem.util.NumberSingleton;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+@SuppressWarnings("unused")
 class NumberSingletonTest {
 
     @Test

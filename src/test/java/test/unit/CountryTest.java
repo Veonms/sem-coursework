@@ -4,7 +4,8 @@ import com.napier.sem.data.Country;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CountryTest {
+@SuppressWarnings("unused")
+class CountryTest {
 
     String name = "Test City";
     String code = "TCi";

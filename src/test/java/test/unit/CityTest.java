@@ -4,7 +4,8 @@ import com.napier.sem.data.City;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CityTest {
+@SuppressWarnings("unused")
+class CityTest {
 
     @Test
     void toStringProper() {

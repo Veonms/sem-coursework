@@ -1,13 +1,13 @@
-sudo: true
-
 language: java
+
+sudo: false
 
 addons:
   hosts:
     - db
 
 services:
-- docker
+  - docker
 
 install:
   - docker build -t database db/.
@@ -22,20 +22,17 @@ jobs:
     - stage: unit tests
       install: skip
       jdk: oraclejdk11
-      script: mvn test -Dtest=test.unit.CityTest,test.unit.CountryLanguageTest,test.unit.CountryTest,test.unit.NumberSingletonTest
+      script: mvn test -Dtest=com.napier.sem.AppTest
     - stage: integration tests
       jdk: oraclejdk11
-      script: mvn test -Dtest=test.integration.DatabaseManagerTest
+      script: echo "Integration Tests"
     - stage: deploy
       install: skip
       jdk: oraclejdk11
-      script: echo "deployment"
+      script: echo "Deploy"
 
 stages:
   - unit tests
   - integration tests
   - name: deploy
     if: branch = master
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)

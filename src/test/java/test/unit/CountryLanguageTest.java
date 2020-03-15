@@ -4,7 +4,8 @@ import com.napier.sem.data.CountryLanguage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class CountryLanguageTest {
+@SuppressWarnings("unused")
+class CountryLanguageTest {
 
     String countryCode = "TCO";
     String language = "Test Language";
