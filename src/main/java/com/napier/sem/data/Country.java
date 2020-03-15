@@ -72,10 +72,8 @@ public class Country {
     public static Map<Integer, Country> getCountries() {
         return cont;
     }
-
     /**
      * This method returns the 3 character country code.
-     *
      * @return The country code.
      */
     public String getCode() {

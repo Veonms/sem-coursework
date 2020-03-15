@@ -1,7 +1,18 @@
 package com.napier.sem;
 
+import com.napier.sem.data.Capital;
 import com.napier.sem.util.DatabaseManager;
+<<<<<<< HEAD
 import com.napier.sem.util.Queries;
+=======
+
+<<<<<<< HEAD
+import java.sql.Statement;
+=======
+import static com.napier.sem.util.Queries.countriesInContinent;
+import static com.napier.sem.util.Queries.worldCountries;
+>>>>>>> develop
+>>>>>>> 16e6aa4d6a8b7d34a3f392a28af4591266962716
 
 /**
  * <h1>SEM Coursework</h1>
@@ -18,7 +29,13 @@ public class App {
         Queries query = new Queries();
 
         dbm.connect(10, 3306, "world", "root", "example", false);
+<<<<<<< HEAD
+
+        dbm.createCities();
+
+=======
         dbm.populate();
+>>>>>>> develop
         dbm.disconnect();
 
         query.worldCountries();
